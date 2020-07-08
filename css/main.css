@@ -1,0 +1,36 @@
+:root {
+    --clr-fondo1: black;
+    --clr-fondo2: grey;
+    --clr-letras: white;
+
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:    "nav"
+                            "section"
+                            "footer";
+}
+
+/* NAV */
+nav {
+    grid-area: nav;
+    background: red
+}
+/* DESKTOP-NAV */
+/* MOBILE-NAV */
+@media
+
+/* PRINCIPAL */
+section {
+    grid-area: section;
+    background: blue;
+}
+
+/* FOOTER */
+footer {
+    grid-area: footer;
+    background: green;
+}
