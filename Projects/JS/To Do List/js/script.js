@@ -7,7 +7,18 @@ const nuevaListaInput = document.querySelector('[data-nueva-lista-input]')
 // Para guardar las listas en el Local Storage del Navegador, y evitar que se pierdan las mismas
 
 const LOCAL_STORAGE_LIST_KEY = 'lista.pendientes'
+const LOCAL_STORAGE_LISTA_SELEECIONADA_KEY = 'lista.pendientes.seleccionada'
 let listas = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [] 
+let listaSeleccionada = localStorage.getItem(LOCAL_STORAGE_LISTA_SELEECIONADA_KEY)
+
+//
+
+misListas.addEventListener("click", e => {
+    if (e.target.tagName.toLowerCase() === "li") {
+        listaSeleccionada = e.target.dataset.listId
+        saveAndRender()
+    }
+})
 
 // CREAR NUEVA LISTA
 
@@ -32,6 +43,7 @@ function saveAndRender () {
 
 function save () {
     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(listas))
+    localStorage.setItem(LOCAL_STORAGE_LISTA_SELEECIONADA_KEY, listaSeleccionada)
 }
 
 function render() {
@@ -41,6 +53,9 @@ function render() {
         elementoLista.dataset.listId = listas.id
         elementoLista.classList.add("nombre-lista")
         elementoLista.innerText = listas.nombre
+        if (listas.id = listaSeleccionada) {
+            listElement.classList.add("lista-activa")
+        } 
         misListas.appendChild(elementoLista)
     })
 }

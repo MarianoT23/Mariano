@@ -1,36 +1,451 @@
+/* TABLA CONTENIDOS 
+    1. CSS VARIABLES
+    2. FONTS
+    3. RESETS
+    4. GRID LAYOUT
+    5. NAV
+    6. PRINCIPAL
+
+*/
+/* --- 1. CSS VARIABLES --- */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
 :root {
-    --clr-fondo1: black;
-    --clr-fondo2: grey;
-    --clr-letras: white;
-
+  --clr-fondo1: #0B0C10;
+  --clr-fondo2: #1F2833;
+  --clr-letras1: #C5C6C7;
+  --clr-letras2: #66FCF1;
+  --clr-bordes: #45A29E;
 }
 
+/* --- 2. FONTS --- */
+/* Open Sans */
+/* Galada */
+/* --- 3. RESETS --- */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--clr-letras1);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  color: var(--clr-letras);
+  text-decoration: none;
+}
+
+/* --- 4. GRID LAYOUT --- */
 body {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:    "nav"
-                            "section"
-                            "footer";
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5fr 80fr 10fr 5fr;
+      grid-template-columns: 5fr 80fr 10fr 5fr;
+  -ms-grid-rows: 10vh 90vh;
+      grid-template-rows: 10vh 90vh;
+      grid-template-areas: "nav nav     nav   nav" "..  section aside ..";
+  background: var(--clr-fondo2);
 }
 
-/* NAV */
+/* --- 5. NAV --- */
 nav {
-    grid-area: nav;
-    background: red
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: nav;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
 }
-/* DESKTOP-NAV */
-/* MOBILE-NAV */
-@media
 
-/* PRINCIPAL */
+/* LOGO */
+.logo {
+  font-family: 'Galada', cursive;
+  font-size: 2rem;
+  color: var(--clr-bordes);
+  width: 90%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10%;
+}
+
+/* HAMBURGER MENU */
+#hamb-menu-container {
+  z-index: 99;
+  width: 10%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#hamb-menu {
+  z-index: 99;
+  width: 72px;
+  height: 50px;
+  position: relative;
+}
+
+/* CLOSED */
+#hamb-btn {
+  z-index: 99;
+  background: var(--clr-bordes);
+  width: 60%;
+  height: 2px;
+  position: absolute;
+  left: 20%;
+  top: calc(50% - 1px);
+  -webkit-transition: all ease-in-out 500ms;
+  transition: all ease-in-out 500ms;
+}
+
+#hamb-btn::before,
+#hamb-btn::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  top: -15px;
+  width: 100%;
+  height: 2px;
+  -webkit-transition: all ease-in-out 500ms;
+  transition: all ease-in-out 500ms;
+}
+
+#hamb-btn::after {
+  position: absolute;
+  background: inherit;
+  top: 15px;
+  width: 100%;
+  height: 2px;
+  -webkit-transition: all ease-in-out 500ms;
+  transition: all ease-in-out 500ms;
+}
+
+/* OPEN */
+.hamb-open#hamb-btn {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.hamb-open#hamb-btn::before {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
+}
+
+.hamb-open#hamb-btn::after {
+  -webkit-transform: translateY(-15px) rotate(90deg);
+          transform: translateY(-15px) rotate(90deg);
+}
+
+/* MENU */
+.menu {
+  z-index: 99;
+  width: 100%;
+  height: 90vh;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--clr-fondo1);
+  -webkit-clip-path: circle(0px at top right);
+          clip-path: circle(0px at top right);
+  -webkit-transition: -webkit-clip-path ease-in-out 700ms;
+  transition: -webkit-clip-path ease-in-out 700ms;
+  transition: clip-path ease-in-out 700ms;
+  transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "resume   contact" "projects projects";
+}
+
+.menu.open {
+  z-index: 99;
+  -webkit-clip-path: circle(250% at top right);
+          clip-path: circle(250% at top right);
+  -webkit-transition: -webkit-clip-path ease-in-out 700ms;
+  transition: -webkit-clip-path ease-in-out 700ms;
+  transition: clip-path ease-in-out 700ms;
+  transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
+}
+
+.menu-box {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--clr-bordes);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.menu-box a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.resume {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: resume;
+}
+
+.projects {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: projects;
+}
+
+.otro {
+  grid-area: otro;
+}
+
+.otro2 {
+  grid-area: otro2;
+}
+
+/* MENU SVG's */
+.menu-svg {
+  width: 200px;
+  height: auto;
+}
+
+/* --- 6. PRINCIPAL --- */
 section {
-    grid-area: section;
-    background: blue;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: section;
 }
 
-/* FOOTER */
-footer {
-    grid-area: footer;
-    background: green;
+h2 {
+  color: var(--clr-letras2);
 }
+
+/* SIDE NAV */
+aside {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: aside;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+aside > div {
+  width: 100%;
+  height: 20vh;
+  border: 1px solid var(--clr-bordes);
+  margin: 5vh 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+aside > div:hover {
+  cursor: pointer;
+}
+
+.svg {
+  width: 80%;
+  height: 80%;
+}
+
+/* LINKEDIN LOGO ANIMATION */
+.link path {
+  fill: transparent;
+  stroke-width: 15;
+  stroke: var(--clr-bordes);
+  stroke-dasharray: 1980;
+  stroke-dashoffset: 0;
+}
+
+.link path:hover {
+  -webkit-animation: animate-svg-link 1.5s linear forwards;
+          animation: animate-svg-link 1.5s linear forwards;
+}
+
+@-webkit-keyframes animate-svg-link {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 1980;
+  }
+  70% {
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 3960;
+    fill: var(--clr-bordes);
+  }
+}
+
+@keyframes animate-svg-link {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 1980;
+  }
+  70% {
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 3960;
+    fill: var(--clr-bordes);
+  }
+}
+
+/* GIT-HUB LOGO ANIMATION */
+#git path {
+  fill: transparent;
+  stroke: var(--clr-bordes);
+  stroke-dashoffset: 0;
+  stroke-dasharray: 200;
+}
+
+path:hover {
+  -webkit-animation: animate-svg-git 1.5s linear forwards;
+          animation: animate-svg-git 1.5s linear forwards;
+}
+
+@-webkit-keyframes animate-svg-git {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 200;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 400;
+    fill: var(--clr-bordes);
+  }
+}
+
+@keyframes animate-svg-git {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 200;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 400;
+    fill: var(--clr-bordes);
+  }
+}
+
+/* STACK LOGO ANIMATION */
+#stack path {
+  fill: var(--clr-bordes);
+}
+
+#stack:hover path:nth-child(6) {
+  -webkit-animation: animate-svg-stack-out 0.2s linear forwards, animate-svg-stack-in 0.2s 2.4s linear forwards;
+          animation: animate-svg-stack-out 0.2s linear forwards, animate-svg-stack-in 0.2s 2.4s linear forwards;
+}
+
+#stack:hover path:nth-child(5) {
+  -webkit-animation: animate-svg-stack-out 0.2s 0.2s linear forwards, animate-svg-stack-in 0.2s 2.2s linear forwards;
+          animation: animate-svg-stack-out 0.2s 0.2s linear forwards, animate-svg-stack-in 0.2s 2.2s linear forwards;
+}
+
+#stack:hover path:nth-child(4) {
+  -webkit-animation: animate-svg-stack-out 0.2s 0.4s linear forwards, animate-svg-stack-in 0.2s 2s linear forwards;
+          animation: animate-svg-stack-out 0.2s 0.4s linear forwards, animate-svg-stack-in 0.2s 2s linear forwards;
+}
+
+#stack:hover path:nth-child(3) {
+  -webkit-animation: animate-svg-stack-out 0.2s 0.6s linear forwards, animate-svg-stack-in 0.2s 1.8s linear forwards;
+          animation: animate-svg-stack-out 0.2s 0.6s linear forwards, animate-svg-stack-in 0.2s 1.8s linear forwards;
+}
+
+#stack:hover path:nth-child(2) {
+  -webkit-animation: animate-svg-stack-out 0.2s 0.8s linear forwards, animate-svg-stack-in 0.2s 1.6s linear forwards;
+          animation: animate-svg-stack-out 0.2s 0.8s linear forwards, animate-svg-stack-in 0.2s 1.6s linear forwards;
+}
+
+#stack:hover path:nth-child(1) {
+  -webkit-animation: animate-svg-stack-out 0.2s 1s linear forwards, animate-svg-stack-in 0.2s 1.4s linear forwards;
+          animation: animate-svg-stack-out 0.2s 1s linear forwards, animate-svg-stack-in 0.2s 1.4s linear forwards;
+}
+
+@-webkit-keyframes animate-svg-stack-out {
+  0% {
+    fill: var(--clr-bordes);
+  }
+  100% {
+    fill: transparent;
+  }
+}
+
+@keyframes animate-svg-stack-out {
+  0% {
+    fill: var(--clr-bordes);
+  }
+  100% {
+    fill: transparent;
+  }
+}
+
+@-webkit-keyframes animate-svg-stack-in {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: var(--clr-bordes);
+  }
+}
+
+@keyframes animate-svg-stack-in {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: var(--clr-bordes);
+  }
+}
+/*# sourceMappingURL=main.css.map */
