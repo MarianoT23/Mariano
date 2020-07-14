@@ -5,28 +5,31 @@
     4. GRID LAYOUT
     5. NAV
     6. PRINCIPAL
+    7. MOBILE
 
+*/
+/* BREAKPOINT 
+DESKTOP: < 992px
+MOBILE: > 991px
 */
 /* --- 1. CSS VARIABLES --- */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
 :root {
   --clr-fondo1: #0B0C10;
   --clr-fondo2: #1F2833;
-  --clr-letras1: #C5C6C7;
+  --clr-fondo3: #C5C6C7;
   --clr-letras2: #66FCF1;
   --clr-bordes: #45A29E;
 }
 
 /* --- 2. FONTS --- */
 /* Open Sans */
-/* Galada */
 /* --- 3. RESETS --- */
 * {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
-  color: var(--clr-letras1);
+  color: var(--clr-fondo3);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -37,6 +40,7 @@ a {
 }
 
 /* --- 4. GRID LAYOUT --- */
+/* DESKTOP */
 body {
   display: -ms-grid;
   display: grid;
@@ -44,28 +48,63 @@ body {
       grid-template-columns: 5fr 80fr 10fr 5fr;
   -ms-grid-rows: 10vh 90vh;
       grid-template-rows: 10vh 90vh;
-      grid-template-areas: "nav nav     nav   nav" "..  section aside ..";
+      grid-template-areas: "desktop-nav desktop-nav desktop-nav desktop-nav" "..          section     aside       ..";
+  background: var(--clr-fondo3);
+  position: relative;
+}
+
+.background {
   background: var(--clr-fondo2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  -webkit-clip-path: polygon(0 0, 81% 0, 74% 100%, 0% 100%);
+          clip-path: polygon(0 0, 81% 0, 74% 100%, 0% 100%);
+  z-index: -99;
+}
+
+.desktop-nav {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: desktop-nav;
+}
+
+.mobile-nav {
+  grid-area: mobile-nav;
+}
+
+section {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: section;
+}
+
+aside {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: aside;
 }
 
 /* --- 5. NAV --- */
 nav {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
-  grid-area: nav;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
 }
 
+.mobile-nav {
+  display: none;
+}
+
 /* LOGO */
 .logo {
-  font-family: 'Galada', cursive;
   font-size: 2rem;
   color: var(--clr-bordes);
-  width: 90%;
+  width: 40%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -76,182 +115,65 @@ nav {
   margin-left: 10%;
 }
 
-/* HAMBURGER MENU */
-#hamb-menu-container {
-  z-index: 99;
-  width: 10%;
-  height: 100%;
+.menu-container {
+  width: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-#hamb-menu {
-  z-index: 99;
-  width: 72px;
-  height: 50px;
+.menu-container h3 {
+  color: var(--clr-bordes);
+}
+
+.menu-item {
+  margin: auto;
+  padding-top: 10px;
   position: relative;
 }
 
-/* CLOSED */
-#hamb-btn {
-  z-index: 99;
-  background: var(--clr-bordes);
-  width: 60%;
-  height: 2px;
-  position: absolute;
-  left: 20%;
-  top: calc(50% - 1px);
-  -webkit-transition: all ease-in-out 500ms;
-  transition: all ease-in-out 500ms;
-}
-
-#hamb-btn::before,
-#hamb-btn::after {
+.menu-item::after {
   content: '';
   position: absolute;
-  background: inherit;
-  top: -15px;
-  width: 100%;
+  top: 38px;
   height: 2px;
-  -webkit-transition: all ease-in-out 500ms;
-  transition: all ease-in-out 500ms;
+  width: 0%;
+  background: var(--clr-bordes);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-#hamb-btn::after {
-  position: absolute;
-  background: inherit;
-  top: 15px;
+.menu-item:hover::after {
   width: 100%;
-  height: 2px;
-  -webkit-transition: all ease-in-out 500ms;
-  transition: all ease-in-out 500ms;
-}
-
-/* OPEN */
-.hamb-open#hamb-btn {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.hamb-open#hamb-btn::before {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  opacity: 0;
-}
-
-.hamb-open#hamb-btn::after {
-  -webkit-transform: translateY(-15px) rotate(90deg);
-          transform: translateY(-15px) rotate(90deg);
-}
-
-/* MENU */
-.menu {
-  z-index: 99;
-  width: 100%;
-  height: 90vh;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: var(--clr-fondo1);
-  -webkit-clip-path: circle(0px at top right);
-          clip-path: circle(0px at top right);
-  -webkit-transition: -webkit-clip-path ease-in-out 700ms;
-  transition: -webkit-clip-path ease-in-out 700ms;
-  transition: clip-path ease-in-out 700ms;
-  transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      grid-template-areas: "resume   contact" "projects projects";
-}
-
-.menu.open {
-  z-index: 99;
-  -webkit-clip-path: circle(250% at top right);
-          clip-path: circle(250% at top right);
-  -webkit-transition: -webkit-clip-path ease-in-out 700ms;
-  transition: -webkit-clip-path ease-in-out 700ms;
-  transition: clip-path ease-in-out 700ms;
-  transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
-}
-
-.menu-box {
-  width: 100%;
-  height: 100%;
-  border: 1px dashed var(--clr-bordes);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-}
-
-.menu-box a {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.resume {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: resume;
-}
-
-.projects {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: projects;
-}
-
-.otro {
-  grid-area: otro;
-}
-
-.otro2 {
-  grid-area: otro2;
-}
-
-/* MENU SVG's */
-.menu-svg {
-  width: 200px;
-  height: auto;
 }
 
 /* --- 6. PRINCIPAL --- */
-section {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: section;
+section h2 {
+  color: var(--clr-letras2);
 }
 
-h2 {
-  color: var(--clr-letras2);
+/* ABOUT */
+.about {
+  min-width: 400px;
+  max-width: 700px;
+  position: absolute;
+  top: calc(50% - 18vh);
+}
+
+.about h2 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.about p {
+  font-size: 1.3em;
 }
 
 /* SIDE NAV */
 aside {
-  -ms-grid-row: 2;
-  -ms-grid-column: 3;
-  grid-area: aside;
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -294,8 +216,8 @@ aside > div:hover {
 /* LINKEDIN LOGO ANIMATION */
 .link path {
   fill: transparent;
-  stroke-width: 15;
   stroke: var(--clr-bordes);
+  stroke-width: 15;
   stroke-dasharray: 1980;
   stroke-dashoffset: 0;
 }
@@ -446,6 +368,235 @@ path:hover {
   }
   100% {
     fill: var(--clr-bordes);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+  /* GRID LAYOUT */
+  body {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 10vh auto;
+        grid-template-rows: 10vh auto;
+        grid-template-areas: "mobile-nav" "section";
+    position: relative;
+  }
+  aside {
+    display: none;
+  }
+  .background {
+    background: var(--clr-fondo2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    -webkit-clip-path: none;
+            clip-path: none;
+    z-index: -99;
+  }
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  /* LOGO */
+  .logo {
+    font-size: 2rem;
+    color: var(--clr-bordes);
+    width: 70%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-left: 10%;
+  }
+  /* HAMBURGER MENU */
+  #hamb-menu-container {
+    z-index: 30;
+    width: 10%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #hamb-menu {
+    z-index: 30;
+    width: 72px;
+    height: 50px;
+    position: relative;
+  }
+  /* CLOSED */
+  #hamb-btn {
+    z-index: 30;
+    background: var(--clr-bordes);
+    width: 60%;
+    height: 2px;
+    position: absolute;
+    left: 20%;
+    top: calc(50% - 1px);
+    -webkit-transition: all ease-in-out 500ms;
+    transition: all ease-in-out 500ms;
+  }
+  #hamb-btn::before,
+  #hamb-btn::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    top: -15px;
+    width: 100%;
+    height: 2px;
+    -webkit-transition: all ease-in-out 500ms;
+    transition: all ease-in-out 500ms;
+  }
+  #hamb-btn::after {
+    position: absolute;
+    background: inherit;
+    top: 15px;
+    width: 100%;
+    height: 2px;
+    -webkit-transition: all ease-in-out 500ms;
+    transition: all ease-in-out 500ms;
+  }
+  /* OPEN */
+  .hamb-open#hamb-btn {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .hamb-open#hamb-btn::before {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+  }
+  .hamb-open#hamb-btn::after {
+    -webkit-transform: translateY(-15px) rotate(90deg);
+            transform: translateY(-15px) rotate(90deg);
+  }
+  /* MENU */
+  .menu {
+    z-index: 20;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--clr-fondo1);
+    -webkit-clip-path: circle(0px at top right);
+            clip-path: circle(0px at top right);
+    -webkit-transition: -webkit-clip-path ease-in-out 700ms;
+    transition: -webkit-clip-path ease-in-out 700ms;
+    transition: clip-path ease-in-out 700ms;
+    transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "resume   contact" "projects projects";
+  }
+}
+
+@media (max-width: 991px) and (max-width: 768px) {
+  .menu {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "resume"  "contact" "projects";
+  }
+}
+
+@media (max-width: 991px) {
+  .menu.open {
+    z-index: 20;
+    -webkit-clip-path: circle(250% at top right);
+            clip-path: circle(250% at top right);
+    -webkit-transition: -webkit-clip-path ease-in-out 700ms;
+    transition: -webkit-clip-path ease-in-out 700ms;
+    transition: clip-path ease-in-out 700ms;
+    transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
+  }
+  .menu-box {
+    width: 100%;
+    height: 100%;
+    border: 1px dashed var(--clr-bordes);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+  }
+  .menu-box:hover {
+    background: var(--clr-fondo2);
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .menu-box a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .resume {
+    grid-area: resume;
+  }
+  .projects {
+    grid-area: projects;
+  }
+  /* MENU SVG's */
+  .menu-svg {
+    width: 150px;
+    height: auto;
+  }
+  /* PRINCIPAL */
+  /* ABOUT */
+  .about {
+    width: 80%;
+    max-width: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    margin: 10%;
+  }
+  .about h2 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+  .about p {
+    font-size: 1.3em;
   }
 }
 /*# sourceMappingURL=main.css.map */

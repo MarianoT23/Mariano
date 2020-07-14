@@ -1,0 +1,162 @@
+body {
+    background: var(--clr-fondo2);
+    display: grid;
+    grid-template-columns: 20fr 10fr 20fr 3fr; 
+    grid-template-rows:  33vh 34vh 33vh;
+    grid-template-areas:    "design            design-courses    design-courses nav"
+                            "structure-courses structure-courses structure      nav"
+                            "code              code-courses      code-courses   nav";
+}
+.design {
+    grid-area: design;
+}
+.design-courses {
+    grid-area: design-courses;
+}
+.code {
+    grid-area: code;
+}
+.code-courses {
+    grid-area: code-courses;
+}
+.structure {
+    grid-area: structure;
+}
+.structure-courses {
+    grid-area: structure-courses;
+}
+nav {
+    grid-area: nav;
+}
+.skill-box {
+    border: 1px dashed var(--clr-bordes);
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    position: relative;
+}
+.skill-logo {
+    width: 100px; height: 110px;
+    margin: auto;
+    z-index: 10;
+}
+
+$after-opacity: 0.1;
+.design::after {
+    background: {
+        image: url("../images/design.jpg");
+        position: center;
+        size: cover;
+    }
+    content: '';
+    opacity: $after-opacity;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    z-index: -1;
+}
+.code::after {
+    background: {
+        image: url("../images/code.jpg");
+        position: center;
+        size: cover;
+    }
+    content: '';
+    opacity: $after-opacity;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+.structure::after {
+    background: {
+        image: url("../images/structure.jpg");
+        position: center;
+        size: cover;
+    }
+    content: '';
+    opacity: $after-opacity;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    z-index: -1;
+}
+
+.carousel {
+    width: 100%; height: 100%;
+    position: relative;
+    display: flex; justify-content: center;
+
+    img {
+        width: 30%;
+    }
+
+    .carousel-slide-container {
+        position: relative;
+        width: 80%; height: 100%;
+        overflow: hidden;
+    }
+    .carousel-slide-list {
+        list-style: none;
+        position: relative;
+        height: 100%;
+        top: 15px; left: 15px;
+        transition: transform 0.8s;
+    }
+    .carousel-slide {
+        position: absolute;
+        width: 100%; height: 90%;
+        object-fit: cover;
+
+        display: flex; 
+
+        h4 {
+            width: 60%;
+            font-size: 2em;
+            margin-left: 30px;
+        }
+        p{
+            width: 60%;
+            font-size: 1.1rem;
+            margin-top: 8px;
+        }
+    }
+    .carousel_button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        outline: none;
+
+        img {
+            width: 35px;
+        }
+    }
+    .carousel_button-left {
+        left: 15px;
+    }
+    .carousel_button-right {
+        right: 15px;
+    }
+
+    .carousel-nav {
+        position: absolute;
+        bottom: 0;
+        left: 65%;
+        transform: translateX(-50%);
+        display: flex; justify-content: center;
+        padding: 10px 0;
+
+        .carousel-indicator {
+            border: 0;
+            border-radius: 50%;
+            width: 13px; height: 13px;
+            background: var(--clr-fondo3);
+            margin: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+        .carousel-indicator.current-slide {
+            background: var(--clr-bordes);
+        }
+    }
+    .hidden {
+        display: none;
+    }
+}
