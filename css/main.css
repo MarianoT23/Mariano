@@ -54,14 +54,15 @@ body {
 }
 
 .background {
-  background: var(--clr-fondo2);
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-fondo1)), to(var(--clr-fondo2)));
+  background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  -webkit-clip-path: polygon(0 0, 81% 0, 74% 100%, 0% 100%);
-          clip-path: polygon(0 0, 81% 0, 74% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 83% 0, 78% 100%, 0% 100%);
+          clip-path: polygon(0 0, 83% 0, 78% 100%, 0% 100%);
   z-index: -99;
 }
 
@@ -103,7 +104,8 @@ nav {
 /* LOGO */
 .logo {
   font-size: 2rem;
-  color: var(--clr-bordes);
+  color: var(--clr-letras2);
+  text-shadow: 0 0 3px var(--clr-letras2);
   width: 40%;
   height: 100%;
   display: -webkit-box;
@@ -113,8 +115,11 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 10%;
+  -webkit-animation: nav-fadein 1s forwards;
+          animation: nav-fadein 1s forwards;
 }
 
+/* MENU */
 .menu-container {
   width: 30%;
   display: -webkit-box;
@@ -126,13 +131,16 @@ nav {
 }
 
 .menu-container h3 {
-  color: var(--clr-bordes);
+  color: var(--clr-letras2);
+  text-shadow: 0 0 3px var(--clr-letras2);
+  letter-spacing: 1.8px;
 }
 
 .menu-item {
   margin: auto;
   padding-top: 10px;
   position: relative;
+  opacity: 0;
 }
 
 .menu-item::after {
@@ -150,26 +158,79 @@ nav {
   width: 100%;
 }
 
-/* --- 6. PRINCIPAL --- */
-section h2 {
-  color: var(--clr-letras2);
+/* NAV FADE-IN ANIMATION */
+@-webkit-keyframes nav-fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes nav-fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
+.menu-item:nth-child(1) {
+  -webkit-animation: nav-fadein 1s forwards;
+          animation: nav-fadein 1s forwards;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.menu-item:nth-child(2) {
+  -webkit-animation: nav-fadein 1s forwards;
+          animation: nav-fadein 1s forwards;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.menu-item:nth-child(3) {
+  -webkit-animation: nav-fadein 1s forwards;
+          animation: nav-fadein 1s forwards;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+
+/* --- 6. PRINCIPAL --- */
 /* ABOUT */
 .about {
   min-width: 400px;
   max-width: 700px;
   position: absolute;
   top: calc(50% - 18vh);
+  letter-spacing: 2px;
 }
 
 .about h2 {
   font-size: 3em;
-  margin-bottom: 0.5em;
+  color: var(--clr-bordes);
 }
 
 .about p {
   font-size: 1.3em;
+  line-height: 1.5em;
+  margin: 1.2em 0;
+  position: relative;
+}
+
+.about button {
+  position: absolute;
+  bottom: -3em;
+  right: 2em;
+  font-size: 0.8em;
+  font-weight: 800;
+  padding: 0.8em;
+  color: var(--clr-fondo2);
+  background: var(--clr-bordes);
+  border-width: 0;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 /* SIDE NAV */
@@ -522,9 +583,6 @@ path:hover {
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: "resume"  "contact" "projects";
   }
-}
-
-@media (max-width: 991px) {
   .menu.open {
     z-index: 20;
     -webkit-clip-path: circle(250% at top right);
@@ -562,9 +620,13 @@ path:hover {
     left: 0;
   }
   .resume {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
     grid-area: resume;
   }
   .projects {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
     grid-area: projects;
   }
   /* MENU SVG's */

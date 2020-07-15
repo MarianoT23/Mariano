@@ -1,20 +1,55 @@
-nav {
+.top {
+  grid-area: top;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
-  height: 100%;
-  background: var(--clr-fondo1);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5em;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-fondo1)), to(var(--clr-fondo2)));
+  background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
 }
 
-.home-btn, .projects-btn, .contact-btn {
+.top h2 {
+  color: var(--clr-bordes);
+}
+
+nav {
+  grid-area: nav;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  height: 12vh;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-fondo1)), to(var(--clr-fondo2)));
+  background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
+}
+
+nav div {
+  position: relative;
+}
+
+nav a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.home-btn, .projects-btn, .contact-btn, .skills-btn {
+  width: 10vh;
+  height: 10vh;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,15 +61,21 @@ nav {
       -ms-flex-pack: center;
           justify-content: center;
   cursor: pointer;
+  border-radius: 15px;
+}
+
+.home-btn:hover, .projects-btn:hover, .contact-btn:hover, .skills-btn {
+  background: var(--clr-fondo1);
+  -webkit-transition: 1.2s;
+  transition: 1.2s;
+}
+
+.active {
+  background: var(--clr-fondo1);
 }
 
 .svg-logo {
   width: 80%;
   height: 80%;
-}
-
-nav hr {
-  width: 80%;
-  height: 1px;
 }
 /*# sourceMappingURL=secondary-nav.css.map */

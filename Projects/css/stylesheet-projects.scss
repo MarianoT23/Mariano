@@ -1,0 +1,19 @@
+body {
+    background: var(--clr-fondo2);
+    display: grid;
+    grid-template-columns: 6fr 4fr; 
+    grid-template-rows:  22vh 78vh;
+    grid-template-areas:    "top                nav"
+                            "project-container  project-container";
+}
+.project-container {
+    grid-area: project-container;
+    background: var(--clr-fondo2);
+    display: flex; flex-wrap: wrap; justify-content: space-evenly;
+}
+.project-box {
+    background: var(--clr-fondo1);
+    border-radius: 20px;
+    margin: 5%;
+    width: 23%; height: 60%;
+}
