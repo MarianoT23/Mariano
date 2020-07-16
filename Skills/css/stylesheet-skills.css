@@ -45,7 +45,6 @@ body {
   grid-area: structure-courses;
 }
 
-/* NAV */
 /* SKILL BOXES */
 .skill-box {
   border: 1px dashed var(--clr-bordes);
@@ -64,8 +63,8 @@ body {
 }
 
 .skill-logo {
-  width: 100px;
-  height: 110px;
+  width: 20%;
+  height: auto;
   margin: auto;
   z-index: 10;
 }

@@ -1,0 +1,99 @@
+body {
+  background: var(--clr-fondo2);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 6fr 4fr;
+      grid-template-columns: 6fr 4fr;
+  -ms-grid-rows: 22vh 78vh;
+      grid-template-rows: 22vh 78vh;
+      grid-template-areas: "top                nav" "contact-container  contact-container";
+}
+
+.contact-container {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: contact-container;
+  background: var(--clr-fondo2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-box {
+  background: var(--clr-fondo1);
+  width: 90vw;
+  height: 70vh;
+  border-radius: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 3fr;
+      grid-template-columns: 2fr 3fr;
+  -ms-grid-rows: 2fr 1fr;
+      grid-template-rows: 2fr 1fr;
+      grid-template-areas: "contact-foto contact-form" "contact-foto contact-info";
+  place-items: center;
+}
+
+.contact-foto {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: contact-foto;
+  background: bisque;
+  border-radius: 50%;
+  height: 70%;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mariano-foto {
+  width: 90%;
+  height: 90%;
+}
+
+.contact-form {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: contact-form;
+  background: bisque;
+  height: 80%;
+  width: 90%;
+}
+
+.contact-info {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: contact-info;
+  background: bisque;
+  height: 80%;
+  width: 90%;
+}
+
+.contact-info h4 {
+  margin: 3% 10%;
+  position: relative;
+  font-size: 1.2em;
+}
+
+.contact-info .contact-svg {
+  width: 10%;
+  position: absolute;
+  -webkit-transform: translate(-100%, -25%);
+          transform: translate(-100%, -25%);
+}
+/*# sourceMappingURL=stylesheet-contact.css.map */

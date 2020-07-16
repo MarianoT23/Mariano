@@ -5,7 +5,9 @@
     background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
     h2 {
         color: var(--clr-bordes);
+        animation: nav-fadein 1s forwards;
     }
+    
 }
 nav {
     grid-area: nav;
@@ -20,7 +22,14 @@ nav {
         top: 0; right: 0; bottom: 0; left: 0;
     }
 }
+@for $i from 1 to 5 {
+    nav>div:nth-child(#{$i}) {
+        animation: nav-fadein 1s forwards;
+        animation-delay: $i * 0.3s;
+    }
+}
 .home-btn, .projects-btn, .contact-btn, .skills-btn  {
+    opacity: 0;
     width: 10vh; height: 10vh;
     margin: auto;
     display: flex; align-items: center; justify-content: center;

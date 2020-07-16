@@ -10,7 +10,8 @@
 */
 /* BREAKPOINT 
 DESKTOP: < 992px
-MOBILE: > 991px
+TABLET: < 769px --- > 991px
+PHONE: > 768px
 */
 
 
@@ -74,180 +75,187 @@ nav {
 .mobile-nav {
     display: none;
 }
-/* LOGO */
-.logo {
-    font-size: 2rem;
-    color: var(--clr-letras2);
-    text-shadow: 0 0 3px var(--clr-letras2);
-    width: 40%; height: 100%; 
-    display: flex; align-items: center;
-    margin-left: 10%;
-    animation: nav-fadein 1s forwards;
-}
-/* MENU */
-.menu-container {
-    width: 30%;
-    display: flex; align-items: center;
-}
-.menu-container h3 {
-    color: var(--clr-letras2);
-    text-shadow: 0 0 3px var(--clr-letras2);
-    letter-spacing: 1.8px;
-}
-.menu-item {
-    margin: auto; padding-top: 10px;
-    position: relative;
-    opacity: 0;
-}
-.menu-item::after {
-    content: '';
-    position: absolute;
-    top: 38px;
-    height: 2px; width: 0%;
-    background: var(--clr-bordes);
-    transition: 0.5s;
-}
-.menu-item:hover::after {
-    width: 100%;
-}
-/* NAV FADE-IN ANIMATION */  
-@keyframes nav-fadein {
-    0% {opacity: 0;};
-    100% {opacity: 1;};
-}
-@for $i from 1 to 4 {
-    .menu-item:nth-child(#{$i}) {
+    /* LOGO */
+    .logo {
+        font-size: 2rem;
+        color: var(--clr-letras2);
+        text-shadow: 0 0 3px var(--clr-letras2);
+        width: 40%; height: 100%; 
+        display: flex; align-items: center;
+        margin-left: 10%;
         animation: nav-fadein 1s forwards;
-        animation-delay: $i * 0.3s;
     }
-}
+     /* MENU */
+    .menu-container {
+        width: 30%;
+        display: flex; align-items: center;
+        h3 {
+            color: var(--clr-letras2);
+            text-shadow: 0 0 3px var(--clr-letras2);
+            letter-spacing: 1.8px;
+        }
+    }
+    .menu-item {
+        margin: auto; padding-top: 10px;
+        position: relative;
+        opacity: 0;
+    }
+    .menu-item::after {
+        content: '';
+        position: absolute;
+        top: 38px;
+        height: 2px; width: 0%;
+        background: var(--clr-bordes);
+        transition: 0.5s;
+    }
+    .menu-item:hover::after {
+        width: 100%;
+    }
+    /* NAV FADE-IN ANIMATION */  
+    @keyframes nav-fadein {
+        0% {opacity: 0;};
+        100% {opacity: 1;};
+    }
+    @for $i from 1 to 4 {
+        .menu-item:nth-child(#{$i}) {
+            animation: nav-fadein 1s forwards;
+            animation-delay: $i * 0.3s;
+        }
+    }
 
 /* --- 6. PRINCIPAL --- */
-/* ABOUT */
-.about {
-    min-width: 400px; max-width: 700px;
-    position: absolute;
-    top: calc(50% - 18vh);
-    letter-spacing: 2px;
+section {
+    display: flex; flex-wrap: wrap; align-items: center; 
+}
+    /* ABOUT */
+    .about {
+        width: 80%;
+        letter-spacing: 2px;
+        position: relative;
 
-    h2 {
-        font-size: 3em;
-        color: var(--clr-bordes);
+        h2 {
+            font-size: 3em;
+            color: var(--clr-bordes);
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.5em;
+            margin: 1.2em 0;
+            position: relative;
+        }
+        button {
+            position: absolute;
+            right: 10%; bottom: 0;
+            transform: translateY(100%);
+            font-size: 0.9em; font-weight: 900;
+            padding: 1em;
+            color: var(--clr-fondo2);
+            background: var(--clr-bordes); 
+            border: {
+                width: 0;
+                radius: 50px;
+            }
+            cursor: pointer;
+        }
+        button:hover {
+            background: var(--clr-letras2);
+            transition: 1s;
+        }
     }
-
-    p {
-        font-size: 1.3em;
-        line-height: 1.5em;
-        margin: 1.2em 0;
+    /* SIDE NAV */
+    aside {
+        width: 100%; height: 100%;
+        display: flex; flex-wrap: wrap; flex-direction: column;
+    }
+    aside > div {
+        width: 100%; height: 20vh;
+        border: 1px solid var(--clr-bordes);
+        margin: 5vh 0 0 0;
+        display: flex; justify-content: center; align-items: center;
         position: relative;
     }
-    button {
-        position: absolute;
-        bottom: -3em; right: 2em;
-        font-size: 0.8em; font-weight: 800;
-        padding: 0.8em;
-        color: var(--clr-fondo2);
-        background: var(--clr-bordes); 
-        border: {
-            width: 0;
-            radius: 50px;
-        }
+    aside > div:hover {
         cursor: pointer;
     }
-}
-/* SIDE NAV */
-aside {
-    width: 100%; height: 100%;
-    display: flex; flex-wrap: wrap; flex-direction: column;
-}
-aside > div {
-    width: 100%; height: 20vh;
-    border: 1px solid var(--clr-bordes);
-    margin: 5vh 0 0 0;
-    display: flex; justify-content: center; align-items: center;
-    position: relative;
-}
-aside > div:hover {
-    cursor: pointer;
-}
-.svg {
-    width: 80%; height: 80%;
-}
-    /* LINKEDIN LOGO ANIMATION */
-    .link path {
-        fill: transparent;
-        stroke: var(--clr-bordes);
-        stroke: {
-            width: 15;
-            dasharray: 1980;
-            dashoffset: 0;
+    .svg {
+        width: 80%; height: 80%;
+    }
+        /* LINKEDIN LOGO ANIMATION */
+        .link path {
+            fill: transparent;
+            stroke: var(--clr-bordes);
+            stroke: {
+                width: 15;
+                dasharray: 1980;
+                dashoffset: 0;
+            }
         }
-    }
-    .link path:hover {
-        animation: animate-svg-link 1.5s linear forwards;
-    }
-    @keyframes animate-svg-link {
-        0% {stroke-dashoffset: 0;}
-        50% {stroke-dashoffset: 1980;}
-        70% {fill: transparent;}
-        100% {stroke-dashoffset: 3960; fill: var(--clr-bordes);}
-    }
-    /* GIT-HUB LOGO ANIMATION */
-    #git path {
-        fill: transparent;
-        stroke: var(--clr-bordes);
-        stroke: {
-            dashoffset: 0;
-            dasharray: 200;
+        .link path:hover {
+            animation: animate-svg-link 1.5s linear forwards;
         }
-    }
-    path:hover {
-        animation: animate-svg-git 1.5s linear forwards;
-    }
-    @keyframes animate-svg-git {
-        0% {stroke-dashoffset: 0}
-        50% {stroke-dashoffset: 200; fill: transparent;}
-        100% {stroke-dashoffset: 400; fill: var(--clr-bordes);}
-    }
-    /* STACK LOGO ANIMATION */
-    #stack path {
-        fill: var(--clr-bordes);
-    }
-    #stack:hover path:nth-child(6) {
-        animation: animate-svg-stack-out 0.2s linear forwards,
-        animate-svg-stack-in 0.2s 2.4s linear forwards;
-    }
-    #stack:hover path:nth-child(5) {
-        animation: animate-svg-stack-out 0.2s 0.2s linear forwards,
-        animate-svg-stack-in 0.2s 2.2s linear forwards;
-    }
-    #stack:hover path:nth-child(4) {
-        animation: animate-svg-stack-out 0.2s 0.4s linear forwards,
-        animate-svg-stack-in 0.2s 2s linear forwards;
-    }
-    #stack:hover path:nth-child(3) {
-        animation: animate-svg-stack-out 0.2s 0.6s linear forwards,
-        animate-svg-stack-in 0.2s 1.8s linear forwards;
-    }
-    #stack:hover path:nth-child(2) {
-        animation: animate-svg-stack-out 0.2s 0.8s linear forwards,
-        animate-svg-stack-in 0.2s 1.6s linear forwards;
-    }
-    #stack:hover path:nth-child(1) {
-        animation: animate-svg-stack-out 0.2s 1s linear forwards,
-        animate-svg-stack-in 0.2s 1.4s linear forwards;
-    }
-    @keyframes animate-svg-stack-out {
-        0% {fill: var(--clr-bordes);}
-        100% {fill: transparent;}
-    }
-    @keyframes animate-svg-stack-in {
-        0% {fill: transparent;}
-        100% {fill: var(--clr-bordes);}
-    }
+        @keyframes animate-svg-link {
+            0% {stroke-dashoffset: 0;}
+            50% {stroke-dashoffset: 1980;}
+            70% {fill: transparent;}
+            100% {stroke-dashoffset: 3960; fill: var(--clr-bordes);}
+        }
+        /* GIT-HUB LOGO ANIMATION */
+        #git path {
+            fill: transparent;
+            stroke: var(--clr-bordes);
+            stroke: {
+                dashoffset: 0;
+                dasharray: 200;
+            }
+        }
+        path:hover {
+            animation: animate-svg-git 1.5s linear forwards;
+        }
+        @keyframes animate-svg-git {
+            0% {stroke-dashoffset: 0}
+            50% {stroke-dashoffset: 200; fill: transparent;}
+            100% {stroke-dashoffset: 400; fill: var(--clr-bordes);}
+        }
+        /* STACK LOGO ANIMATION */
+        #stack path {
+            fill: var(--clr-bordes);
+        }
+        #stack:hover path:nth-child(6) {
+            animation: animate-svg-stack-out 0.2s linear forwards,
+            animate-svg-stack-in 0.2s 2.4s linear forwards;
+        }
+        #stack:hover path:nth-child(5) {
+            animation: animate-svg-stack-out 0.2s 0.2s linear forwards,
+            animate-svg-stack-in 0.2s 2.2s linear forwards;
+        }
+        #stack:hover path:nth-child(4) {
+            animation: animate-svg-stack-out 0.2s 0.4s linear forwards,
+            animate-svg-stack-in 0.2s 2s linear forwards;
+        }
+        #stack:hover path:nth-child(3) {
+            animation: animate-svg-stack-out 0.2s 0.6s linear forwards,
+            animate-svg-stack-in 0.2s 1.8s linear forwards;
+        }
+        #stack:hover path:nth-child(2) {
+            animation: animate-svg-stack-out 0.2s 0.8s linear forwards,
+            animate-svg-stack-in 0.2s 1.6s linear forwards;
+        }
+        #stack:hover path:nth-child(1) {
+            animation: animate-svg-stack-out 0.2s 1s linear forwards,
+            animate-svg-stack-in 0.2s 1.4s linear forwards;
+        }
+        @keyframes animate-svg-stack-out {
+            0% {fill: var(--clr-bordes);}
+            100% {fill: transparent;}
+        }
+        @keyframes animate-svg-stack-in {
+            0% {fill: transparent;}
+            100% {fill: var(--clr-bordes);}
+        }
 
 
-/* MOBILE */ 
+/* --- 7. MOBILE --- */ 
 @media (max-width: 991px) {
     /* GRID LAYOUT */
     body {
@@ -257,17 +265,13 @@ aside > div:hover {
         grid-template-areas:    "mobile-nav"
                                 "section";
         position: relative;
+        background: var(--clr-fondo2); clip-path: none;
     }
     aside {
         display: none;
     }
     .background {
-        background: var(--clr-fondo2);
-        position: absolute;
-        top: 0; left: 0;
-        height: 100vh; width: 100vw;
-        clip-path: none;
-        z-index: -99;
+        display: none;
     }
     .desktop-nav {
         display: none;
@@ -275,11 +279,12 @@ aside > div:hover {
     .mobile-nav {
         display: flex;
     }
+    nav {
+        border-bottom: 1px solid var(--clr-bordes);
+    }
     /* LOGO */
     .logo {
         font-size: 2rem;
-        color: var(--clr-bordes);
-
         width: 70%; height: 100%; 
         display: flex; align-items: center;
         margin-left: 10%;
@@ -298,7 +303,7 @@ aside > div:hover {
         /* CLOSED */
         #hamb-btn {
             z-index: 30;
-            background: var(--clr-bordes);  
+            background: var(--clr-letras2);  
             width: 60%; height: 2px;
             position: absolute; left: 20%; top: calc(50% - 1px);
             transition: all ease-in-out 500ms;
@@ -344,6 +349,60 @@ aside > div:hover {
         grid-template-areas:    "resume   contact"
                                 "projects projects";
     }
+    .menu.open {
+        z-index: 20;
+        clip-path: circle(250% at top right);
+        transition: clip-path ease-in-out 700ms;
+    }
+    .menu-box {
+        width: 100%; height: 100%;
+        border: 1px dashed var(--clr-bordes);
+        display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+        position: relative;
+        a {
+            position: absolute; 
+            top: 0; 
+            right: 0; 
+            bottom: 0; 
+            left: 0;
+        }
+        div {
+            display: flex; align-items: center; justify-content: center;
+            width: 100%;
+        }
+    }
+    .menu-box:hover {
+        background: var(--clr-fondo2);
+        transition: 1s;
+    }
+    .resume {
+        grid-area: resume;
+    }
+    .projects {
+        grid-area: projects;
+    }
+    /* MENU SVG's */
+    .menu-svg {
+        width: 150px;
+        height: auto;
+    }
+    /* PRINCIPAL */
+    /* ABOUT */
+    .about {
+        width: 80%; max-width: none;
+        display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+        position: relative;
+        margin: 10%;
+        
+        h2 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            font-size: 1.3em;
+        }
+    }
     @media (max-width: 768px) {
         .menu {
             display: grid;
@@ -353,55 +412,5 @@ aside > div:hover {
                                     "contact"
                                     "projects";
         }
-        .menu.open {
-            z-index: 20;
-            clip-path: circle(250% at top right);
-            transition: clip-path ease-in-out 700ms;
-        }
-        .menu-box {
-            width: 100%; height: 100%;
-            border: 1px dashed var(--clr-bordes);
-            display: flex; align-items: center; justify-content: center;
-            position: relative;
-        }
-        .menu-box:hover {
-            background: var(--clr-fondo2);
-            transition: 1s;
-        }
-        .menu-box a {
-            position: absolute; 
-            top: 0; 
-            right: 0; 
-            bottom: 0; 
-            left: 0;
-        }
-        .resume {
-            grid-area: resume;
-        }
-        .projects {
-            grid-area: projects;
-        }
-        /* MENU SVG's */
-        .menu-svg {
-            width: 150px;
-            height: auto;
-        }
-    /* PRINCIPAL */
-        /* ABOUT */
-        .about {
-            width: 80%; max-width: none;
-            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-            position: relative;
-            margin: 10%;
-            
-            h2 {
-                font-size: 3em;
-                margin-bottom: 0.5em;
-            }
-
-            p {
-                font-size: 1.3em;
-            }
-        }
-}
+    }
 }

@@ -10,7 +10,8 @@
 */
 /* BREAKPOINT 
 DESKTOP: < 992px
-MOBILE: > 991px
+TABLET: < 769px --- > 991px
+PHONE: > 768px
 */
 /* --- 1. CSS VARIABLES --- */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap");
@@ -198,13 +199,22 @@ nav {
 }
 
 /* --- 6. PRINCIPAL --- */
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 /* ABOUT */
 .about {
-  min-width: 400px;
-  max-width: 700px;
-  position: absolute;
-  top: calc(50% - 18vh);
+  width: 80%;
   letter-spacing: 2px;
+  position: relative;
 }
 
 .about h2 {
@@ -221,16 +231,24 @@ nav {
 
 .about button {
   position: absolute;
-  bottom: -3em;
-  right: 2em;
-  font-size: 0.8em;
-  font-weight: 800;
-  padding: 0.8em;
+  right: 10%;
+  bottom: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  font-size: 0.9em;
+  font-weight: 900;
+  padding: 1em;
   color: var(--clr-fondo2);
   background: var(--clr-bordes);
   border-width: 0;
   border-radius: 50px;
   cursor: pointer;
+}
+
+.about button:hover {
+  background: var(--clr-letras2);
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 /* SIDE NAV */
@@ -432,7 +450,7 @@ path:hover {
   }
 }
 
-/* MOBILE */
+/* --- 7. MOBILE --- */
 @media (max-width: 991px) {
   /* GRID LAYOUT */
   body {
@@ -444,20 +462,15 @@ path:hover {
         grid-template-rows: 10vh auto;
         grid-template-areas: "mobile-nav" "section";
     position: relative;
+    background: var(--clr-fondo2);
+    -webkit-clip-path: none;
+            clip-path: none;
   }
   aside {
     display: none;
   }
   .background {
-    background: var(--clr-fondo2);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    -webkit-clip-path: none;
-            clip-path: none;
-    z-index: -99;
+    display: none;
   }
   .desktop-nav {
     display: none;
@@ -467,10 +480,12 @@ path:hover {
     display: -ms-flexbox;
     display: flex;
   }
+  nav {
+    border-bottom: 1px solid var(--clr-bordes);
+  }
   /* LOGO */
   .logo {
     font-size: 2rem;
-    color: var(--clr-bordes);
     width: 70%;
     height: 100%;
     display: -webkit-box;
@@ -505,7 +520,7 @@ path:hover {
   /* CLOSED */
   #hamb-btn {
     z-index: 30;
-    background: var(--clr-bordes);
+    background: var(--clr-letras2);
     width: 60%;
     height: 2px;
     position: absolute;
@@ -571,18 +586,6 @@ path:hover {
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "resume   contact" "projects projects";
   }
-}
-
-@media (max-width: 991px) and (max-width: 768px) {
-  .menu {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-    -ms-grid-rows: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-areas: "resume"  "contact" "projects";
-  }
   .menu.open {
     z-index: 20;
     -webkit-clip-path: circle(250% at top right);
@@ -599,6 +602,8 @@ path:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -607,11 +612,6 @@ path:hover {
             justify-content: center;
     position: relative;
   }
-  .menu-box:hover {
-    background: var(--clr-fondo2);
-    -webkit-transition: 1s;
-    transition: 1s;
-  }
   .menu-box a {
     position: absolute;
     top: 0;
@@ -619,14 +619,32 @@ path:hover {
     bottom: 0;
     left: 0;
   }
+  .menu-box div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .menu-box:hover {
+    background: var(--clr-fondo2);
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
   .resume {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     grid-area: resume;
   }
   .projects {
-    -ms-grid-row: 3;
+    -ms-grid-row: 2;
     -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     grid-area: projects;
   }
   /* MENU SVG's */
@@ -659,6 +677,18 @@ path:hover {
   }
   .about p {
     font-size: 1.3em;
+  }
+}
+
+@media (max-width: 991px) and (max-width: 768px) {
+  .menu {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "resume"  "contact" "projects";
   }
 }
 /*# sourceMappingURL=main.css.map */

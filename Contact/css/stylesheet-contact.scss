@@ -1,0 +1,57 @@
+body {
+    background: var(--clr-fondo2);
+    display: grid;
+    grid-template-columns: 6fr 4fr; 
+    grid-template-rows:  22vh 78vh;
+    grid-template-areas:    "top                nav"
+                            "contact-container  contact-container";
+}
+.contact-container {
+    grid-area: contact-container;
+    background: var(--clr-fondo2);
+    display: flex; justify-content: center; align-items: center;
+}
+.contact-box {
+    background: var(--clr-fondo1);
+    width: 90vw; height: 70vh;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:    "contact-foto contact-form"
+                            "contact-foto contact-info";
+    place-items: center;
+}
+.contact-foto {
+    grid-area: contact-foto;
+    background: bisque;
+    border-radius: 50%;
+    height: 70%; width: 80%;
+    display: flex; align-items: center; justify-content: center;
+}
+.mariano-foto {
+    width: 90%; height: 90%;
+}
+
+.contact-form {
+    grid-area: contact-form;
+    background: bisque;
+    height: 80%; width: 90%;
+}
+
+.contact-info {
+    grid-area: contact-info;
+    background: bisque;
+    height: 80%; width: 90%;
+    h4 {
+        margin: 3% 10%;
+        position: relative;
+        font-size: 1.2em;
+    }
+    .contact-svg {
+        width: 10%;
+        position: absolute;
+        transform: translate(-100%, -25%);
+    }
+}
+
