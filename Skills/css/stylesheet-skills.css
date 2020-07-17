@@ -60,6 +60,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  color: var(--clr-fondo3);
 }
 
 .skill-logo {

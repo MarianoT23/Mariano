@@ -18,6 +18,7 @@ PHONE: > 768px
 /* --- 1. CSS VARIABLES --- */
 :root {
     --clr-fondo1: #0B0C10;
+    --clr-fondo1-opaco: rgba(11,12,16,0.6);
     --clr-fondo2: #1F2833;
     --clr-fondo3: #C5C6C7;
     --clr-letras2: #66FCF1;
@@ -34,7 +35,6 @@ PHONE: > 768px
 * {
     margin: 0; padding: 0;
     font-family: 'Open Sans', sans-serif;
-    color: var(--clr-fondo3);
     box-sizing: border-box;
 }
 a {
@@ -60,12 +60,18 @@ body {
     top: 0; left: 0;
     height: 100vh; width: 100vw;
     clip-path: polygon(0 0, 83% 0, 78% 100%, 0% 100%);
-    z-index: -99;
+    z-index: -80;
 }
 .desktop-nav {grid-area: desktop-nav;}
 .mobile-nav {grid-area: mobile-nav;}
 section {grid-area: section;}
 aside {grid-area: aside;}
+.language {
+    position: absolute;
+    top: 1vh; right: 0;
+    z-index: 80;
+    width: 4vw; height: 4vh;
+}
 
 /* --- 5. NAV --- */
 nav {
@@ -129,6 +135,7 @@ section {
 }
     /* ABOUT */
     .about {
+        color: var(--clr-fondo3);
         width: 80%;
         letter-spacing: 2px;
         position: relative;
@@ -257,6 +264,10 @@ section {
 
 /* --- 7. MOBILE --- */ 
 @media (max-width: 991px) {
+    /* LANGUAGE */
+    .language {
+        top: 93vh; right: 2vw;
+    }
     /* GRID LAYOUT */
     body {
         display: grid;
@@ -284,7 +295,7 @@ section {
     }
     /* LOGO */
     .logo {
-        font-size: 2rem;
+        font-size: 1rem;
         width: 70%; height: 100%; 
         display: flex; align-items: center;
         margin-left: 10%;

@@ -10,10 +10,39 @@ body {
     grid-area: project-container;
     background: var(--clr-fondo2);
     display: flex; flex-wrap: wrap; justify-content: space-evenly;
+    color: var(--clr-fondo3);
 }
 .project-box {
-    background: var(--clr-fondo1);
+    background: var(--clr-fondo1-opaco);
     border-radius: 20px;
-    margin: 5%;
-    width: 23%; height: 60%;
+    margin: 5% 2%;
+    width: 25%; height: 60%;
+    overflow: hidden;
+    position: relative;
+    > div {
+        width: 100%;
+        padding: 3%;
+    }
+    .project-image{
+        height: 55%;
+    }
+    .project-title {
+        background: var(--clr-fondo1);
+        height: 15%;
+        display: flex; align-items: center; 
+        h4 {
+            margin-left: 5%;
+        }
+    }
+    .project-description {
+        height: 30%;
+    }
+    a {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+    }
+}
+.project-box:hover {
+    opacity: 0.5;
+    transition: 1s;
 }

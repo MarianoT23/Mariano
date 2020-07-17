@@ -23,13 +23,58 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  color: var(--clr-fondo3);
 }
 
 .project-box {
-  background: var(--clr-fondo1);
+  background: var(--clr-fondo1-opaco);
   border-radius: 20px;
-  margin: 5%;
-  width: 23%;
+  margin: 5% 2%;
+  width: 25%;
   height: 60%;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-box > div {
+  width: 100%;
+  padding: 3%;
+}
+
+.project-box .project-image {
+  height: 55%;
+}
+
+.project-box .project-title {
+  background: var(--clr-fondo1);
+  height: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.project-box .project-title h4 {
+  margin-left: 5%;
+}
+
+.project-box .project-description {
+  height: 30%;
+}
+
+.project-box a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.project-box:hover {
+  opacity: 0.5;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 /*# sourceMappingURL=stylesheet-projects.css.map */

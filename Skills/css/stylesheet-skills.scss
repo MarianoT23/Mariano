@@ -19,6 +19,7 @@ body {
     border: 1px dashed var(--clr-bordes);
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
     position: relative;
+    color: var(--clr-fondo3);
 }
 .skill-logo {
     width: 20%; height: auto;

@@ -24,24 +24,25 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: var(--clr-fondo3);
 }
 
 .contact-box {
-  background: var(--clr-fondo1);
+  background: var(--clr-fondo1-opaco);
   width: 90vw;
   height: 70vh;
   border-radius: 20px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 3fr;
-      grid-template-columns: 2fr 3fr;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
   -ms-grid-rows: 2fr 1fr;
       grid-template-rows: 2fr 1fr;
       grid-template-areas: "contact-foto contact-form" "contact-foto contact-info";
   place-items: center;
 }
 
-.contact-foto {
+.contact-box .contact-foto {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -61,39 +62,105 @@ body {
           justify-content: center;
 }
 
-.mariano-foto {
+.contact-box .contact-foto .mariano-foto {
   width: 90%;
   height: 90%;
 }
 
-.contact-form {
+.contact-box .contact-form {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: contact-form;
   background: bisque;
   height: 80%;
   width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.contact-info {
+.contact-box .contact-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-box .contact-form .form-name-mail {
+  background: blue;
+  width: 20%;
+}
+
+.contact-box .contact-form .form-text {
+  background: royalblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40%;
+}
+
+.contact-box .contact-form .form-btn {
+  background: saddlebrown;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 20%;
+}
+
+.contact-box .contact-info {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: contact-info;
   background: bisque;
   height: 80%;
   width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.contact-info h4 {
-  margin: 3% 10%;
-  position: relative;
-  font-size: 1.2em;
+.contact-box .contact-info .contact-medium {
+  width: 50%;
+  height: 50%;
+  padding: 1em;
+  background: red;
 }
 
-.contact-info .contact-svg {
+.contact-box .contact-info h4 {
+  -webkit-transform: translateY(30%);
+          transform: translateY(30%);
+}
+
+.contact-box .contact-info .contact-svg {
+  float: left;
   width: 10%;
-  position: absolute;
-  -webkit-transform: translate(-100%, -25%);
-          transform: translate(-100%, -25%);
+  margin: 0 1em;
 }
 /*# sourceMappingURL=stylesheet-contact.css.map */
