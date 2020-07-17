@@ -464,7 +464,7 @@ path:hover {
 @media (max-width: 991px) {
   /* LANGUAGE */
   .language {
-    top: 93vh;
+    top: 95vh;
     right: 2vw;
   }
   /* GRID LAYOUT */
@@ -514,7 +514,7 @@ path:hover {
   /* HAMBURGER MENU */
   #hamb-menu-container {
     z-index: 30;
-    width: 10%;
+    width: 20%;
     height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -525,6 +525,8 @@ path:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    position: absolute;
+    right: 0;
   }
   #hamb-menu {
     z-index: 30;
@@ -614,6 +616,7 @@ path:hover {
     width: 100%;
     height: 100%;
     border: 1px dashed var(--clr-bordes);
+    color: var(--clr-fondo3);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

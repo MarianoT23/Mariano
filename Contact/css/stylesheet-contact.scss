@@ -34,36 +34,55 @@ body {
     }
     .contact-form {
         grid-area: contact-form;
-        background: bisque;
         height: 80%; width: 90%;
         display: flex; align-items: center; justify-content: center;
         form {
-            display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center;
+            display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+            background: var(--clr-fondo2);
+            border-radius: 10px;
         }
-        .form-name-mail {
-            background: blue;
-            width: 20%; 
+        input, textarea {
+            margin: 1.5em;
+            background: var(--clr-fondo3);
+            border-radius: 10px;
+            width: 80%; height: 3em;
+        }
+        .form-name, .form-mail {
+            display: flex; justify-content: center;
+            width: 50%; 
         }
         .form-text {
-            background: royalblue;
             display: flex; align-items: center; justify-content: center;
-            width: 40%;
+            width: 50%;
+            textarea {
+                width: 100%; height: 8em;
+            }
         }
         .form-btn {
-            background: saddlebrown;
             display: flex; align-items: center; justify-content: center;
-            width: 20%;
+            width: 30%;
+            input {
+                width: 70%; height: 3.5em;
+                background: var(--clr-bordes);
+                border: none; border-radius: 50px;
+                font-size: 1em; font-weight: 900; color: var(--clr-fondo1);
+            }
+            input:hover {
+                cursor: pointer;
+                background: var(--clr-letras2);
+            }
+            input:active {
+                background: red;
+            }
         }
     }
     .contact-info {
         grid-area: contact-info;
-        background: bisque;
         height: 80%; width: 90%;
         display: flex; flex-wrap: wrap;
         .contact-medium {
             width: 50%; height: 50%;
             padding: 1em;
-            background: red;
         }
         h4 {
             transform: translateY(30%);
@@ -76,8 +95,15 @@ body {
     }
 }
 
-
-
-
+@media (max-width: 991px) {
+    .contact-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:    "contact-foto"
+                                "contact-form"
+                                "contact-info";
+    }
+}
 
 

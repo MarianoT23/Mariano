@@ -71,7 +71,6 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: contact-form;
-  background: bisque;
   height: 80%;
   width: 90%;
   display: -webkit-box;
@@ -91,21 +90,35 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: var(--clr-fondo2);
+  border-radius: 10px;
 }
 
-.contact-box .contact-form .form-name-mail {
-  background: blue;
-  width: 20%;
+.contact-box .contact-form input, .contact-box .contact-form textarea {
+  margin: 1.5em;
+  background: var(--clr-fondo3);
+  border-radius: 10px;
+  width: 80%;
+  height: 3em;
+}
+
+.contact-box .contact-form .form-name, .contact-box .contact-form .form-mail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50%;
 }
 
 .contact-box .contact-form .form-text {
-  background: royalblue;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,11 +128,15 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 40%;
+  width: 50%;
+}
+
+.contact-box .contact-form .form-text textarea {
+  width: 100%;
+  height: 8em;
 }
 
 .contact-box .contact-form .form-btn {
-  background: saddlebrown;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -129,14 +146,33 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 20%;
+  width: 30%;
+}
+
+.contact-box .contact-form .form-btn input {
+  width: 70%;
+  height: 3.5em;
+  background: var(--clr-bordes);
+  border: none;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: 900;
+  color: var(--clr-fondo1);
+}
+
+.contact-box .contact-form .form-btn input:hover {
+  cursor: pointer;
+  background: var(--clr-letras2);
+}
+
+.contact-box .contact-form .form-btn input:active {
+  background: red;
 }
 
 .contact-box .contact-info {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: contact-info;
-  background: bisque;
   height: 80%;
   width: 90%;
   display: -webkit-box;
@@ -150,7 +186,6 @@ body {
   width: 50%;
   height: 50%;
   padding: 1em;
-  background: red;
 }
 
 .contact-box .contact-info h4 {
@@ -162,5 +197,17 @@ body {
   float: left;
   width: 10%;
   margin: 0 1em;
+}
+
+@media (max-width: 991px) {
+  .contact-box {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "contact-foto" "contact-form" "contact-info";
+  }
 }
 /*# sourceMappingURL=stylesheet-contact.css.map */

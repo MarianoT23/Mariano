@@ -42,7 +42,7 @@ body {
 }
 
 .project-box .project-image {
-  height: 55%;
+  height: 60%;
 }
 
 .project-box .project-title {
@@ -61,7 +61,7 @@ body {
 }
 
 .project-box .project-description {
-  height: 30%;
+  height: 25%;
 }
 
 .project-box a {

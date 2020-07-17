@@ -10,8 +10,8 @@
     <link rel="icon" type="image/svg+xml" href="../icons/MT.svg">
 </head>
 <body>
-    <!-- NAV -->
-    <nav>
+    <!-- DESKTOP NAV -->
+    <nav class="secondary-desktop-nav">
         <div class="home-btn">
             <a href="../index.html"></a>
             <img src="../icons/home-icon.svg" class="svg-logo">
@@ -29,6 +29,40 @@
             <img src="../icons/contact-icon.svg" class="svg-logo active">
         </div>
     </nav>
+    <!-- MOBILE NAV -->
+    <nav class="secondary-mobile-nav">
+        <div id="hamb-menu-container">
+            <div id="hamb-menu">
+                <div id="hamb-btn" class="hamb-closed"></div>
+            </div>
+        </div>
+        <div class="secondary-menu">
+            <div class="secondary-menu-box home">
+                <a href="../index.html"></a>
+                <div>
+                    <img src="../icons/home-icon.svg" alt="Contact" class="menu-svg">
+                </div>
+            </div>
+            <div class="secondary-menu-box resume">
+                <a href="../Skills/skills.html"></a>
+                <div>
+                    <img src="../icons/skills-icon.svg" alt="Skilss and Courses" class="menu-svg">
+                </div>
+            </div>
+            <div class="secondary-menu-box projects">
+                <a href="../Projects/projects.html"></a>
+                <div>
+                    <img src="../icons/projects-icon.svg" alt="Projects" class="menu-svg">
+                </div>
+            </div>
+            <div class="secondary-menu-box contact">
+                <a href="#"></a>
+                <div>
+                    <img src="../icons/contact-icon.svg" alt="Contact" class="menu-svg">
+                </div>
+            </div>
+        </div>
+    </nav>
     <!-- TOP -->
     <div class="top">
         <h2>Contact</h2>
@@ -41,15 +75,16 @@
             </div>
             <div class="contact-form">
                 <form action="">
-                    <div class="form-name-mail">
-                        <label for="Name">Nombre:</label>
-                        <input type="text" id="Name" placeholder="Juan">
-
-                        <label for="eMail">Mail:</label>
-                        <input type="email" id="eMail" placeholder="juan@mail.com">
+                    <div class="form-name">
+                        <label for="Name"></label>
+                        <input type="text" id="Name" placeholder="NAME">
+                    </div>
+                    <div class="form-mail">
+                        <label for="eMail"></label>
+                        <input type="email" id="eMail" placeholder="EMAIL">
                     </div>
                     <div class="form-text">
-                        <textarea name="" id="Text" cols="30" rows="10" placeholder="How can i help you?"></textarea>
+                        <textarea name="" id="Text" placeholder="How can i help you?"></textarea>
                     </div>
                     <div class="form-btn">
                         <input type="button" value="SEND">
@@ -62,6 +97,10 @@
                     <h4>mtimistit@ius.austral.edu.ar</h4>
                 </div>
                 <div class="contact-medium">
+                    <img src="images/linkedin.svg" alt="" class="contact-svg">
+                    <h4>Mariano Timistit</h4>
+                </div>
+                <div class="contact-medium">
                     <img src="images/github.svg" alt="" class="contact-svg">
                     <h4>MarianoT23</h4>
                 </div>
@@ -69,12 +108,11 @@
                     <img src="images/stack-overflow.svg" alt="" class="contact-svg">
                     <h4>MarianoT</h4>
                 </div>
-                <div class="contact-medium">
-                    <img src="images/github.svg" alt="" class="contact-svg">
-                    <h4>Mariano Timistit</h4>
-                </div>
             </div>
         </div>
     </div>
+
+    <script src="../js/secondary-menu.js"></script>
+
 </body>
 </html>
