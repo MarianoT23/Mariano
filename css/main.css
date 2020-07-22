@@ -604,7 +604,7 @@ path:hover {
         grid-template-areas: "resume   contact" "projects projects";
   }
   .menu.open {
-    z-index: 20;
+    z-index: 80;
     -webkit-clip-path: circle(250% at top right);
             clip-path: circle(250% at top right);
     -webkit-transition: -webkit-clip-path ease-in-out 700ms;
@@ -706,7 +706,7 @@ path:hover {
         grid-template-columns: 1fr;
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        grid-template-areas: "resume"  "contact" "projects";
+        grid-template-areas: "resume"  "projects"  "contact";
   }
 }
 /*# sourceMappingURL=main.css.map */

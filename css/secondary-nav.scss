@@ -67,6 +67,36 @@
     .top {
         font-size: 1.3em;        
     }
+    /* NAV */
+    nav {
+        border: none;
+    }
+    /* HAMBURGER MENU */
+    #hamb-menu-container {
+        width: 100%; 
+    }
+
+    #hamb-menu {
+        width: 50px; height: 30px;
+    }
+        /* CLOSED */
+        #hamb-btn {
+            height: 1.5px;
+            position: absolute; left: 20%; top: calc(50% - 1.5px);
+        }
+        #hamb-btn::before,
+        #hamb-btn::after {
+            top: -10px;
+            height: 1.5px;
+        }
+        #hamb-btn::after {
+            top: 10px;
+            height: 1.5px;
+        }
+        /* OPEN */
+        .hamb-open#hamb-btn::after {
+            transform: translateY(-10px) rotate(90deg);
+        }
     /* SECONDARY MENU */
     .secondary-menu {
         z-index: 20;

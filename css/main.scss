@@ -363,7 +363,7 @@ section {
                                 "projects projects";
     }
     .menu.open {
-        z-index: 20;
+        z-index: 80;
         clip-path: circle(250% at top right);
         transition: clip-path ease-in-out 700ms;
     }
@@ -423,8 +423,8 @@ section {
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr 1fr;
             grid-template-areas:    "resume" 
-                                    "contact"
-                                    "projects";
+                                    "projects" 
+                                    "contact";
         }
     }
 }
