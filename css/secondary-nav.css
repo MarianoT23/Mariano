@@ -1,31 +1,11 @@
 /* SECONDARY NAVIGATION */
-/* TOP */
-.top {
-  grid-area: top;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.5em;
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-fondo1)), to(var(--clr-fondo2)));
-  background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
-}
-
-.top h2 {
-  color: var(--clr-bordes);
-  -webkit-animation: nav-fadein 1s forwards;
-          animation: nav-fadein 1s forwards;
+body {
+  position: relative;
 }
 
 /* NAV */
-/* DESKTOP NAV */
-.secondary-desktop-nav {
-  grid-area: nav;
+.logo {
+  font-size: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,10 +15,27 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
-  height: 100%;
+}
+
+.secondary-desktop-nav, .secondary-mobile-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-fondo1)), to(var(--clr-fondo2)));
   background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
+}
+
+/* DESKTOP NAV */
+.secondary-desktop-nav {
+  grid-area: nav;
+  width: 100%;
+  height: 100%;
 }
 
 .secondary-desktop-nav div {
@@ -55,13 +52,6 @@
 
 .secondary-mobile-nav {
   display: none;
-}
-
-nav > div:nth-child(1) {
-  -webkit-animation: nav-fadein 1s forwards;
-          animation: nav-fadein 1s forwards;
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
 }
 
 nav > div:nth-child(2) {
@@ -85,9 +75,16 @@ nav > div:nth-child(4) {
           animation-delay: 1.2s;
 }
 
+nav > div:nth-child(5) {
+  -webkit-animation: nav-fadein 1s forwards;
+          animation: nav-fadein 1s forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
 .home-btn, .projects-btn, .contact-btn, .skills-btn {
   opacity: 0;
-  width: 10vh;
+  width: 10%;
   height: 10vh;
   margin: auto;
   display: -webkit-box;
@@ -103,7 +100,7 @@ nav > div:nth-child(4) {
   border-radius: 15px;
 }
 
-.home-btn:hover, .projects-btn:hover, .contact-btn:hover, .skills-btn {
+.home-btn:hover, .projects-btn:hover, .contact-btn:hover, .skills-btn:hover {
   background: var(--clr-fondo1);
   -webkit-transition: 1.2s;
   transition: 1.2s;
@@ -125,21 +122,14 @@ nav > div:nth-child(4) {
   }
   .secondary-mobile-nav {
     display: block;
-    background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-fondo1)), to(var(--clr-fondo2)));
-    background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
-  }
-  /* TOP */
-  .top {
-    font-size: 1.3em;
+    width: 100%;
+    height: 100%;
   }
   /* NAV */
   nav {
     border: none;
   }
   /* HAMBURGER MENU */
-  #hamb-menu-container {
-    width: 100%;
-  }
   #hamb-menu {
     width: 50px;
     height: 30px;
@@ -166,50 +156,20 @@ nav > div:nth-child(4) {
             transform: translateY(-10px) rotate(90deg);
   }
   /* SECONDARY MENU */
-  .secondary-menu {
-    z-index: 20;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--clr-fondo1);
-    -webkit-clip-path: circle(0px at top right);
-            clip-path: circle(0px at top right);
-    -webkit-transition: -webkit-clip-path ease-in-out 700ms;
-    transition: -webkit-clip-path ease-in-out 700ms;
-    transition: clip-path ease-in-out 700ms;
-    transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    -ms-grid-rows: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "home     resume" "projects contact";
-  }
   .home {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
     grid-area: home;
   }
   .resume {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
     grid-area: resume;
   }
   .projects {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
     grid-area: projects;
   }
   .contact {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
     grid-area: contact;
   }
   .secondary-menu.open {
-    z-index: 20;
+    z-index: 80;
     -webkit-clip-path: circle(250% at top right);
             clip-path: circle(250% at top right);
     -webkit-transition: -webkit-clip-path ease-in-out 700ms;
@@ -217,58 +177,10 @@ nav > div:nth-child(4) {
     transition: clip-path ease-in-out 700ms;
     transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
   }
-  .secondary-menu-box {
-    width: 100%;
-    height: 100%;
-    border: 1px dashed var(--clr-bordes);
-    color: var(--clr-fondo3);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    position: relative;
-  }
-  .secondary-menu-box a {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  .secondary-menu-box div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 100%;
-  }
-  .secondary-menu-box:hover {
-    background: var(--clr-fondo2);
-    -webkit-transition: 1s;
-    transition: 1s;
-  }
   /* MENU SVG's */
   .menu-svg {
     width: 150px;
     height: auto;
-  }
-}
-
-@media (max-width: 991px) and (max-width: 768px) {
-  .top {
-    font-size: 1em;
   }
 }
 /*# sourceMappingURL=secondary-nav.css.map */

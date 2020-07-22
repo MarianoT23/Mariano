@@ -1,12 +1,13 @@
+/* GRID LAYOUT */
 body {
   background: var(--clr-fondo2);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 1.5fr 1.5fr 3fr 1fr;
-      grid-template-columns: 3fr 1.5fr 1.5fr 3fr 1fr;
+  -ms-grid-columns: 2fr 1fr 1fr 2fr;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
   -ms-grid-rows: 22vh 39vh 39vh;
       grid-template-rows: 22vh 39vh 39vh;
-      grid-template-areas: "top               top                top               nav            nav" "structure-courses structure-courses  structure-courses structure      structure" "code              code               code-courses      code-courses   code-courses";
+      grid-template-areas: "nav               nav                nav               nav            " "structure-courses structure-courses  structure-courses structure      " "code              code-courses               code-courses      code-courses   ";
 }
 
 .design {
@@ -20,13 +21,12 @@ body {
 .code {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: code;
 }
 
 .code-courses {
   -ms-grid-row: 3;
-  -ms-grid-column: 3;
+  -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-area: code-courses;
 }
@@ -34,7 +34,6 @@ body {
 .structure {
   -ms-grid-row: 2;
   -ms-grid-column: 4;
-  -ms-grid-column-span: 2;
   grid-area: structure;
 }
 
@@ -214,15 +213,24 @@ body {
     background: var(--clr-fondo2);
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 5fr 1fr;
-        grid-template-columns: 5fr 1fr;
-    -ms-grid-rows: 0.5fr 1fr 1.5fr 1fr 1.5fr;
-        grid-template-rows: 0.5fr 1fr 1.5fr 1fr 1.5fr;
-        grid-template-areas: "top               nav" "structure         structure" "structure-courses structure-courses" "code              code"                "code-courses      code-courses";
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 10vh 20vh 40vh 20vh 40vh;
+        grid-template-rows: 10vh 20vh 40vh 20vh 40vh;
+        grid-template-areas: "nav" "structure" "structure-courses" "code"                "code-courses";
   }
   .skill-logo {
     width: 15%;
     height: auto;
+  }
+  .menu {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "projects contact" "home   home";
   }
   /* CAROUSEL */
   .carousel .carousel-slide h4, .carousel .carousel-slide-structure h4, .carousel-structure .carousel-slide h4, .carousel-structure .carousel-slide-structure h4 {

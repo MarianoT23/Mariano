@@ -1,11 +1,12 @@
+/* GRID LAYOUT */
 body {
     background: var(--clr-fondo2);
     display: grid;
-    grid-template-columns: 3fr 1.5fr 1.5fr 3fr 1fr; 
+    grid-template-columns: 2fr 1fr 1fr 2fr; 
     grid-template-rows:  22vh 39vh 39vh;
-    grid-template-areas:    "top               top                top               nav            nav"
-                            "structure-courses structure-courses  structure-courses structure      structure"
-                            "code              code               code-courses      code-courses   code-courses";
+    grid-template-areas:    "nav               nav                nav               nav            "
+                            "structure-courses structure-courses  structure-courses structure      "
+                            "code              code-courses               code-courses      code-courses   ";
 }
 .design {grid-area: design;}
 .design-courses {grid-area: design-courses;}
@@ -128,16 +129,23 @@ body {
     body {
         background: var(--clr-fondo2);
         display: grid;
-        grid-template-columns: 5fr 1fr; 
-        grid-template-rows:  0.5fr 1fr 1.5fr 1fr 1.5fr;
-        grid-template-areas:    "top               nav"
-                                "structure         structure"
-                                "structure-courses structure-courses"
-                                "code              code"               
-                                "code-courses      code-courses";
+        grid-template-columns: 1fr; 
+        grid-template-rows:  10vh 20vh 40vh 20vh 40vh;
+        grid-template-areas:    "nav"
+                                "structure"
+                                "structure-courses"
+                                "code"               
+                                "code-courses";
     }
     .skill-logo {
         width: 15%; height: auto;
+    }
+    .menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:    "projects contact"
+                                "home   home";
     }
     /* CAROUSEL */
     .carousel, .carousel-structure {

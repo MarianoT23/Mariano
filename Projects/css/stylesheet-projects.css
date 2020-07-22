@@ -2,17 +2,16 @@ body {
   background: var(--clr-fondo2);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 6fr 4fr;
-      grid-template-columns: 6fr 4fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
   -ms-grid-rows: 22vh 78vh;
       grid-template-rows: 22vh 78vh;
-      grid-template-areas: "top                nav" "project-container  project-container";
+      grid-template-areas: "nav" "project-container";
 }
 
 .project-container {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: project-container;
   background: var(--clr-fondo2);
   display: -webkit-box;
@@ -80,5 +79,30 @@ body {
   opacity: 0.5;
   -webkit-transition: 1s;
   transition: 1s;
+}
+
+@media (max-width: 991px) {
+  body {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 10vh 120vh;
+        grid-template-rows: 10vh 120vh;
+        grid-template-areas: "nav" "project-container";
+  }
+  .project-box {
+    width: 60%;
+    height: 40%;
+  }
+  .menu {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "resume contact" "home   home";
+  }
 }
 /*# sourceMappingURL=stylesheet-projects.css.map */

@@ -1,155 +1,105 @@
 /* SECONDARY NAVIGATION */
-/* TOP */
-.top {
-    grid-area: top;
-    display: flex; justify-content: center; align-items: center;
-    font-size: 1.5em;
-    background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
-    h2 {
-        color: var(--clr-bordes);
-        animation: nav-fadein 1s forwards;
-    }
-    
+body {
+    position: relative;
 }
+
 /* NAV */
-/* DESKTOP NAV */
-.secondary-desktop-nav {
-    grid-area: nav;
-    display: flex; justify-content: center; align-items: center;
-    width: 100%; height: 100%;
-    background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
-    div {
-        position: relative;
+    .logo {
+        font-size: 1.5rem;
+        display: flex; justify-content: center; align-items: center;
     }
-    a {
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-    }
-}
-.secondary-mobile-nav {
-    display: none;
-}
-@for $i from 1 to 5 {
-    nav>div:nth-child(#{$i}) {
-        animation: nav-fadein 1s forwards;
-        animation-delay: $i * 0.3s;
-    }
-}
-.home-btn, .projects-btn, .contact-btn, .skills-btn  {
-    opacity: 0;
-    width: 10vh; height: 10vh;
-    margin: auto;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    border-radius: 15px;
-}
-.home-btn:hover, .projects-btn:hover, .contact-btn:hover, .skills-btn  {
-    background: var(--clr-fondo1);
-    transition: 1.2s;
-} 
-.active {
-    background: var(--clr-fondo1);
-}
-.svg-logo {
-    width: 80%;
-    height: 80%;
-}
-/* MOBILE NAV */
-@media (max-width: 991px) {
-    .secondary-desktop-nav{
-        display: none;
-    }
-    .secondary-mobile-nav {
-        display: block;
+    .secondary-desktop-nav, .secondary-mobile-nav {
+        display: flex; justify-content: center; align-items: center;
         background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
     }
-    /* TOP */
-    .top {
-        font-size: 1.3em;        
-    }
-    /* NAV */
-    nav {
-        border: none;
-    }
-    /* HAMBURGER MENU */
-    #hamb-menu-container {
-        width: 100%; 
-    }
-
-    #hamb-menu {
-        width: 50px; height: 30px;
-    }
-        /* CLOSED */
-        #hamb-btn {
-            height: 1.5px;
-            position: absolute; left: 20%; top: calc(50% - 1.5px);
-        }
-        #hamb-btn::before,
-        #hamb-btn::after {
-            top: -10px;
-            height: 1.5px;
-        }
-        #hamb-btn::after {
-            top: 10px;
-            height: 1.5px;
-        }
-        /* OPEN */
-        .hamb-open#hamb-btn::after {
-            transform: translateY(-10px) rotate(90deg);
-        }
-    /* SECONDARY MENU */
-    .secondary-menu {
-        z-index: 20;
-        width: 100vw; height: 100vh;
-        position: absolute; top: 100%; right: 0;
-        background: var(--clr-fondo1);
-        clip-path: circle(0px at top right);
-        transition: clip-path ease-in-out 700ms;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas:    "home     resume"
-                                "projects contact";
-    }
-    .home { grid-area: home;}
-    .resume {grid-area: resume;}
-    .projects { grid-area: projects;}
-    .contact {grid-area: contact;}
-    .secondary-menu.open {
-        z-index: 20;
-        clip-path: circle(250% at top right);
-        transition: clip-path ease-in-out 700ms;
-    }
-    .secondary-menu-box {
+    /* DESKTOP NAV */
+    .secondary-desktop-nav {
+        grid-area: nav;
         width: 100%; height: 100%;
-        border: 1px dashed var(--clr-bordes);
-        color: var(--clr-fondo3);
-        display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-        position: relative;
-        a {
-            position: absolute; 
-            top: 0; 
-            right: 0; 
-            bottom: 0; 
-            left: 0;
-        }
         div {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%;
+            position: relative;
+        }
+        a {
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
         }
     }
-    .secondary-menu-box:hover {
-        background: var(--clr-fondo2);
-        transition: 1s;
+    .secondary-mobile-nav {
+        display: none;
     }
-    /* MENU SVG's */
-    .menu-svg {
-        width: 150px;
-        height: auto;
-    }
-    @media (max-width: 768px) {
-        .top {
-            font-size: 1em;        
+    @for $i from 2 to 6 {
+        nav>div:nth-child(#{$i}) {
+            animation: nav-fadein 1s forwards;
+            animation-delay: $i * 0.3s;
         }
     }
-}
+    .home-btn, .projects-btn, .contact-btn, .skills-btn  {
+        opacity: 0;
+        width: 10%; height: 10vh;
+        margin: auto;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        border-radius: 15px;
+    }
+    .home-btn:hover, .projects-btn:hover, .contact-btn:hover, .skills-btn:hover  {
+        background: var(--clr-fondo1);
+        transition: 1.2s;
+    } 
+    .active {
+        background: var(--clr-fondo1);
+    }
+    .svg-logo {
+        width: 80%;
+        height: 80%;
+    }
+    /* MOBILE NAV */
+    @media (max-width: 991px) {
+        .secondary-desktop-nav{
+            display: none;
+        }
+        .secondary-mobile-nav {
+            display: block;
+            width: 100%; height: 100%;
+        }
+        /* NAV */
+        nav {
+            border: none;
+        }
+        /* HAMBURGER MENU */
+        #hamb-menu {
+            width: 50px; height: 30px;
+        }
+            /* CLOSED */
+            #hamb-btn {
+                height: 1.5px;
+                position: absolute; left: 20%; top: calc(50% - 1.5px);
+            }
+            #hamb-btn::before,
+            #hamb-btn::after {
+                top: -10px;
+                height: 1.5px;
+            }
+            #hamb-btn::after {
+                top: 10px;
+                height: 1.5px;
+            }
+            /* OPEN */
+            .hamb-open#hamb-btn::after {
+                transform: translateY(-10px) rotate(90deg);
+            }
+        /* SECONDARY MENU */
+        .home { grid-area: home;}
+        .resume {grid-area: resume;}
+        .projects { grid-area: projects;}
+        .contact {grid-area: contact;}
+        .secondary-menu.open {
+            z-index: 80;
+            clip-path: circle(250% at top right);
+            transition: clip-path ease-in-out 700ms;
+        }
+        /* MENU SVG's */
+        .menu-svg {
+            width: 150px;
+            height: auto;
+        }
+    }

@@ -1,18 +1,20 @@
+/* GRID LAYOUT */
 body {
   background: var(--clr-fondo2);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 6fr 4fr;
-      grid-template-columns: 6fr 4fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
   -ms-grid-rows: 22vh 78vh;
       grid-template-rows: 22vh 78vh;
-      grid-template-areas: "top                nav" "contact-container  contact-container";
+      grid-template-areas: "nav" "contact-container";
+  position: relative;
 }
 
+/* CONTACT */
 .contact-container {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: contact-container;
   background: var(--clr-fondo2);
   display: -webkit-box;
@@ -27,7 +29,7 @@ body {
   color: var(--clr-fondo3);
 }
 
-.contact-box {
+.contact-container .contact-box {
   background: var(--clr-fondo1-opaco);
   width: 90vw;
   height: 70vh;
@@ -42,7 +44,7 @@ body {
   place-items: center;
 }
 
-.contact-box .contact-foto {
+.contact-container .contact-box .contact-foto {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -60,14 +62,15 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
 }
 
-.contact-box .contact-foto .mariano-foto {
-  width: 90%;
-  height: 90%;
+.contact-container .contact-box .contact-foto .mariano-foto {
+  width: 100%;
+  height: 100%;
 }
 
-.contact-box .contact-form {
+.contact-container .contact-box .contact-form {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: contact-form;
@@ -84,7 +87,7 @@ body {
           justify-content: center;
 }
 
-.contact-box .contact-form form {
+.contact-container .contact-box .contact-form form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,13 +104,13 @@ body {
   padding: 1em;
 }
 
-.contact-box .contact-form label {
+.contact-container .contact-box .contact-form label {
   display: none;
   position: absolute;
   left: 2em;
 }
 
-.contact-box .contact-form input, .contact-box .contact-form textarea {
+.contact-container .contact-box .contact-form input, .contact-container .contact-box .contact-form textarea {
   background: var(--clr-fondo3);
   border-radius: 10px;
   width: 90%;
@@ -116,32 +119,32 @@ body {
   padding: 1em;
 }
 
-.contact-box .contact-form input::-webkit-input-placeholder, .contact-box .contact-form textarea::-webkit-input-placeholder {
+.contact-container .contact-box .contact-form input::-webkit-input-placeholder, .contact-container .contact-box .contact-form textarea::-webkit-input-placeholder {
   color: var(--clr-fondo1);
 }
 
-.contact-box .contact-form input:-ms-input-placeholder, .contact-box .contact-form textarea:-ms-input-placeholder {
+.contact-container .contact-box .contact-form input:-ms-input-placeholder, .contact-container .contact-box .contact-form textarea:-ms-input-placeholder {
   color: var(--clr-fondo1);
 }
 
-.contact-box .contact-form input::-ms-input-placeholder, .contact-box .contact-form textarea::-ms-input-placeholder {
+.contact-container .contact-box .contact-form input::-ms-input-placeholder, .contact-container .contact-box .contact-form textarea::-ms-input-placeholder {
   color: var(--clr-fondo1);
 }
 
-.contact-box .contact-form input::placeholder, .contact-box .contact-form textarea::placeholder {
+.contact-container .contact-box .contact-form input::placeholder, .contact-container .contact-box .contact-form textarea::placeholder {
   color: var(--clr-fondo1);
 }
 
-.contact-box .contact-form input:focus, .contact-box .contact-form textarea:focus {
+.contact-container .contact-box .contact-form input:focus, .contact-container .contact-box .contact-form textarea:focus {
   outline: 1px solid var(--clr-fondo3);
   outline-offset: 3px;
 }
 
-.contact-box .contact-form input:focus + label, .contact-box .contact-form textarea:focus + label {
+.contact-container .contact-box .contact-form input:focus + label, .contact-container .contact-box .contact-form textarea:focus + label {
   display: block;
 }
 
-.contact-box .contact-form .form-name, .contact-box .contact-form .form-mail, .contact-box .contact-form .form-text {
+.contact-container .contact-box .contact-form .form-name, .contact-container .contact-box .contact-form .form-mail, .contact-container .contact-box .contact-form .form-text {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -154,19 +157,19 @@ body {
   width: 50%;
 }
 
-.contact-box .contact-form .form-text {
+.contact-container .contact-box .contact-form .form-text {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   width: 70%;
 }
 
-.contact-box .contact-form .form-text textarea {
+.contact-container .contact-box .contact-form .form-text textarea {
   width: 100%;
   height: 8em;
 }
 
-.contact-box .contact-form .form-btn {
+.contact-container .contact-box .contact-form .form-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,7 +182,7 @@ body {
   width: 30%;
 }
 
-.contact-box .contact-form .form-btn input {
+.contact-container .contact-box .contact-form .form-btn input {
   width: 70%;
   height: 3.5em;
   background: var(--clr-bordes);
@@ -190,16 +193,16 @@ body {
   color: var(--clr-fondo1);
 }
 
-.contact-box .contact-form .form-btn input:hover {
+.contact-container .contact-box .contact-form .form-btn input:hover {
   cursor: pointer;
   background: var(--clr-letras2);
 }
 
-.contact-box .contact-form .form-btn input:active {
+.contact-container .contact-box .contact-form .form-btn input:active {
   background: red;
 }
 
-.contact-box .contact-info {
+.contact-container .contact-box .contact-info {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: contact-info;
@@ -212,18 +215,18 @@ body {
       flex-wrap: wrap;
 }
 
-.contact-box .contact-info .contact-medium {
+.contact-container .contact-box .contact-info .contact-medium {
   width: 50%;
   height: 50%;
   padding: 1em;
 }
 
-.contact-box .contact-info h4 {
+.contact-container .contact-box .contact-info h4 {
   -webkit-transform: translateY(30%);
           transform: translateY(30%);
 }
 
-.contact-box .contact-info .contact-svg {
+.contact-container .contact-box .contact-info .contact-svg {
   float: left;
   width: 10%;
   margin: 0 1em;
@@ -234,16 +237,26 @@ body {
   body {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 2.5fr 1fr;
-        grid-template-columns: 2.5fr 1fr;
-    -ms-grid-rows: auto;
-        grid-template-rows: auto;
-        grid-template-areas: "top                nav" "contact-container  contact-container";
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 10vh 120vh;
+        grid-template-rows: 10vh 120vh;
+        grid-template-areas: "nav" "contact-container";
+    position: relative;
+  }
+  .menu {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "resume projects" "home   home";
   }
   .contact-container {
     margin-top: 5%;
   }
-  .contact-box {
+  .contact-container .contact-box {
     width: 90%;
     height: auto;
     display: -ms-grid;
@@ -253,6 +266,24 @@ body {
     -ms-grid-rows: auto;
         grid-template-rows: auto;
         grid-template-areas: "contact-foto" "contact-form" "contact-info";
+  }
+  .contact-container .contact-box .contact-foto {
+    height: 10em;
+    width: 10em;
+    margin: 2em;
+  }
+  .contact-container .contact-box .contact-foto .mariano-foto {
+    width: 60%;
+    height: 60%;
+  }
+  .contact-container .contact-info h4 {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 991px) and (max-width: 768px) {
+  .contact-container .contact-info h4 {
+    font-size: 0.6em;
   }
 }
 /*# sourceMappingURL=stylesheet-contact.css.map */

@@ -1,10 +1,10 @@
 body {
     background: var(--clr-fondo2);
     display: grid;
-    grid-template-columns: 6fr 4fr; 
+    grid-template-columns: 1fr; 
     grid-template-rows:  22vh 78vh;
-    grid-template-areas:    "top                nav"
-                            "project-container  project-container";
+    grid-template-areas:    "nav"
+                            "project-container";
 }
 .project-container {
     grid-area: project-container;
@@ -46,4 +46,23 @@ body {
 .project-box:hover {
     opacity: 0.5;
     transition: 1s;
+}
+@media (max-width: 991px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr; 
+        grid-template-rows:  10vh 120vh;
+        grid-template-areas:    "nav"
+                                "project-container";
+    }
+    .project-box {
+        width: 60%; height: 40%;
+    }
+    .menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:    "resume contact"
+                                "home   home";
+    }
 }
