@@ -116,7 +116,7 @@ nav {
   font-size: 2rem;
   color: var(--clr-letras2);
   text-shadow: 0 0 3px var(--clr-letras2);
-  width: 40%;
+  width: 30%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -131,7 +131,7 @@ nav {
 
 /* MENU */
 .menu-container {
-  width: 30%;
+  width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

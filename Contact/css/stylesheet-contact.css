@@ -276,14 +276,16 @@ body {
     width: 60%;
     height: 60%;
   }
-  .contact-container .contact-info h4 {
+  .contact-container .contact-box .contact-info h4 {
     font-size: 0.8em;
   }
 }
 
 @media (max-width: 991px) and (max-width: 768px) {
-  .contact-container .contact-info h4 {
-    font-size: 0.6em;
+  .contact-container .contact-box .contact-info .contact-medium {
+    width: 80%;
+    height: 20%;
+    margin-left: 20%;
   }
 }
 /*# sourceMappingURL=stylesheet-contact.css.map */

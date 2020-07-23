@@ -150,18 +150,21 @@ body {
                     width: 60%; height: 60%;
                 }
             }
-        }
-        .contact-info {
-            h4 {
-                font-size: 0.8em;
+            .contact-info {
+                h4 {
+                    font-size: 0.8em;
+                }
             }
         }
     }
     @media (max-width: 768px) {
         .contact-container {
-            .contact-info {
-                h4 {
-                    font-size: 0.6em;
+            .contact-box {
+                .contact-info {
+                    .contact-medium {
+                        width: 80%; height: 20%;
+                        margin-left: 20%;
+                    }
                 }
             }
         }
