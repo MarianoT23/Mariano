@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="_blank">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="css/stylesheet-contact.css">
     <link rel="stylesheet" href="../css/secondary-nav.css">
@@ -64,51 +65,52 @@
         </div>
     </nav>
     <!-- CONTACT -->
-    <div class="contact-container">
-        <div class="contact-box">
-            <div class="contact-foto">
-                <img src="" alt="" class="mariano-foto">
-            </div>
-            <div class="contact-form">
-                <form action="https://formspree.io/mbjzqykw" method="POST">
-                    <div class="form-name">
-                        <input type="text" name="Nombre" id="Name" placeholder="NAME">
-                        <label for="Name" id="NameLabel">Name:</label>
-                    </div>
-                    <div class="form-mail">
-                        <input type="email" name="Mail" id="eMail" placeholder="EMAIL">
-                        <label for="eMail">Email:</label>
-                    </div>
-                    <div class="form-text">
-                        <textarea name="Texto" id="Text" placeholder="How can i help you?"></textarea>
-                        <label for="Text">How can i help you?</label>
-                    </div>
-                    <div class="form-btn">
-                        <input type="submit" name="Send" value="SEND">
-                    </div>
-                </form>
-            </div>
-            <div class="contact-info">
-                <div class="contact-medium">
-                    <img src="images/mail.svg" alt="" class="contact-svg">
-                    <h4>mtimistit@ius.austral.edu.ar</h4>
+    <div class="contact-form-container">
+        <div class="contact-form">
+            <form action="https://formspree.io/mbjzqykw" method="POST">
+                <div class="form-name">
+                    <input type="text" name="Nombre" id="Name" placeholder="NAME">
+                    <label for="Name" id="NameLabel">Name:</label>
                 </div>
-                <div class="contact-medium">
-                    <img src="images/linkedin.svg" alt="" class="contact-svg">
-                    <h4>Mariano Timistit</h4>
+                <div class="form-mail">
+                    <input type="email" name="Mail" id="eMail" placeholder="EMAIL">
+                    <label for="eMail">Email:</label>
                 </div>
-                <div class="contact-medium">
-                    <img src="images/github.svg" alt="" class="contact-svg">
-                    <h4>MarianoT23</h4>
+                <div class="form-text">
+                    <textarea name="Texto" id="Text" placeholder="How can i help you?"></textarea>
+                    <label for="Text">How can i help you?</label>
                 </div>
-                <div class="contact-medium">
-                    <img src="images/stack-overflow.svg" alt="" class="contact-svg">
-                    <h4>MarianoT</h4>
+                <div class="form-btn">
+                    <input type="submit" name="Send" value="SEND">
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-
+    <div class="contact-info-container">
+        <div class="contact-info">
+            <div class="contact-medium">
+                <a href="https://mail.google.com/mail/u/0/?tab=wm#inbox"></a>
+                <img src="images/mail.svg" alt="" class="contact-svg">
+                <h4>mtimistit@ius.austral.edu.ar</h4>
+            </div>
+            <div class="contact-medium">
+                <a href="https://www.linkedin.com/in/mariano-timistit-30b70460/"></a>
+                <img src="images/linkedin.svg" alt="" class="contact-svg">
+                <h4>Mariano Timistit</h4>
+            </div>
+            <div class="contact-medium">
+                <a href="https://github.com/MarianoT23"></a>
+                <img src="images/github.svg" alt="" class="contact-svg">
+                <h4>MarianoT23</h4>
+            </div>
+            <div class="contact-medium">
+                <a href="https://stackoverflow.com/users/13865222/marianot?tab=profile"></a>
+                <img src="images/stack-overflow.svg" alt="" class="contact-svg">
+                <h4>MarianoT</h4>
+            </div>
+        </div> 
+    </div>
+   
     <script src="../js/main.js"></script>
     <script src="js/contact.js"></script>
 
