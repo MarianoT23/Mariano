@@ -40,10 +40,10 @@ body {
             margin: 3em; padding: 1em;
         }
         input:focus, textarea:focus{
-            outline: 1px solid var(--clr-fondo3 );
-            outline-offset: 3px;
+            outline: none;
         }
-        input:focus + label, textarea:focus + label {
+        input:focus + label, textarea:focus + label,
+        input:valid + label, textarea:valid + label  {
             display: block;
             color: var(--clr-fondo3);
             font-size: 1.1em;
@@ -70,9 +70,10 @@ body {
                 border: none; border-radius: 50px;
                 font-size: 1em; font-weight: 900; color: var(--clr-fondo1);
             }
-            input:hover {
+            input:hover, input:focus {
                 cursor: pointer;
                 background: var(--clr-letras2);
+                transition: 1s;
             }
             input:active {
                 background: red;

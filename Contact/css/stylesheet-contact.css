@@ -84,11 +84,11 @@ body {
 }
 
 .contact-form-container .contact-form input:focus, .contact-form-container .contact-form textarea:focus {
-  outline: 1px solid var(--clr-fondo3);
-  outline-offset: 3px;
+  outline: none;
 }
 
-.contact-form-container .contact-form input:focus + label, .contact-form-container .contact-form textarea:focus + label {
+.contact-form-container .contact-form input:focus + label, .contact-form-container .contact-form textarea:focus + label,
+.contact-form-container .contact-form input:valid + label, .contact-form-container .contact-form textarea:valid + label {
   display: block;
   color: var(--clr-fondo3);
   font-size: 1.1em;
@@ -145,9 +145,11 @@ body {
   color: var(--clr-fondo1);
 }
 
-.contact-form-container .contact-form .form-btn input:hover {
+.contact-form-container .contact-form .form-btn input:hover, .contact-form-container .contact-form .form-btn input:focus {
   cursor: pointer;
   background: var(--clr-letras2);
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .contact-form-container .contact-form .form-btn input:active {
