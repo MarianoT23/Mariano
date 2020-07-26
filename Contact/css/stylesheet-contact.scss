@@ -1,4 +1,4 @@
-/* GRID LAYOUT */
+/* --- 1. GRID LAYOUT --- */
 body {
     background: var(--clr-fondo2);
     display: grid;
@@ -8,13 +8,14 @@ body {
                             "contact-form-container contact-info-container";
     position: relative;
 }
-/* CONTACT */
+/* --- 2. CONTACT FORM + INFO --- */
 .contact-form-container, .contact-info-container {
     background: var(--clr-fondo1);
     margin: 2em;
     display: flex; justify-content: center; align-items: center;
     border-radius: 20px;
 }
+/* --- 3. CONTACT FORM --- */
 .contact-form-container {
     grid-area: contact-form-container;
     .contact-form {
@@ -29,7 +30,8 @@ body {
         label {
             display: block;
             position: absolute;
-            left: 3em; top: 3em;
+            font-size: 1.5rem;
+            left: 3.5em; top: 3.2em;
             color: var(--clr-fondo1);
             transition: 1s;
         }
@@ -37,7 +39,7 @@ body {
             background: var(--clr-fondo3);
             border-radius: 10px;
             width: 90%; height: 3em;
-            margin: 3em; padding: 1em;
+            margin: 2.5em; padding: 1em;
         }
         input:focus, textarea:focus{
             outline: none;
@@ -46,7 +48,7 @@ body {
         input:valid + label, textarea:valid + label  {
             display: block;
             color: var(--clr-fondo3);
-            font-size: 1.1em;
+            font-size: 1.8rem;
             left: 3em; top: 0.3em;
         }
         .form-name, .form-mail, .form-text {
@@ -68,7 +70,7 @@ body {
                 width: 70%; height: 3.5em;
                 background: var(--clr-bordes);
                 border: none; border-radius: 50px;
-                font-size: 1em; font-weight: 900; color: var(--clr-fondo1);
+                font-size: 1.8rem; font-weight: 900; color: var(--clr-fondo1);
             }
             input:hover, input:focus {
                 cursor: pointer;
@@ -81,12 +83,14 @@ body {
         }
     }
 }
+/* --- 4. CONTACT INFO --- */
 .contact-info-container {
     grid-area: contact-info-container;
     .contact-info {
         grid-area: contact-info;
         height: 80%; width: 90%;
         display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+        font-size: 1.5rem;
         .contact-medium {
             position: relative;
             width: 90%; height: 20%;
@@ -114,12 +118,12 @@ body {
 }
 
 
-/* MOBILE */
+/* --- 5. MOBILE --- */
 @media (max-width: 991px) {
     body {
         display: grid;
         grid-template-columns: 1fr; 
-        grid-template-rows:  10vh 120vh;
+        grid-template-rows:  10vh 45vh 55vh;
         grid-template-areas:    "nav"
                                 "contact-form-container"
                                 "contact-info-container";
@@ -132,42 +136,62 @@ body {
         grid-template-areas:    "resume projects"
                                 "home   home";
     }
-    .contact-container {
-        margin-top: 5%;
-        .contact-box {
-            width: 90%; height: auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            grid-template-areas:    "contact-foto"
-                                    "contact-form"
-                                    "contact-info";
-            .contact-foto {
-                height: 10em; width: 10em;
-                margin: 2em;
-                .mariano-foto {
-                    width: 60%; height: 60%;
+    .contact-form-container {
+        .contact-form {
+            label {
+                font-size: 1.3rem;
+                left: 2.5em; top: 1.8em;
+            }
+            input, textarea {
+                width: 90%; height: 3em;
+                margin: 1em; padding: 1em;
+            }
+            input:focus + label, textarea:focus + label,
+            input:valid + label, textarea:valid + label  {
+                display: block;
+                color: var(--clr-fondo3);
+                font-size: 1.5rem;
+                left: 2em; top: -0.7em;
+            }
+            .form-text {
+                textarea {
+                    width: 100%; height: 7em;
                 }
             }
-            .contact-info {
+            .form-btn {
+                input {
+                    width: 80%; height: 4em;
+                    font-size: 1.2rem; 
+                }
+            }
+        }
+    }
+    .contact-info-container {
+        .contact-info {
+            height: 80%; width: 90%;
+            display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+            font-size: 1.3rem;
+            .contact-medium {
+                display: flex; align-items: center;
+                position: relative;
+                width: 50%; height: 50%;
+                padding: 0em;
                 h4 {
-                    font-size: 0.8em;
+                    transform: translateY(0%);
                 }
+                .contact-svg {
+                    float: left;
+                    width: 10%;
+                    margin: 0 0.5em 0 0;
+                }
+            }
+            .contact-medium:hover {
+                background: var(--clr-fondo2);
+                border-radius: 20px;
             }
         }
     }
-    @media (max-width: 768px) {
-        .contact-container {
-            .contact-box {
-                .contact-info {
-                    .contact-medium {
-                        width: 80%; height: 20%;
-                        margin-left: 20%;
-                    }
-                }
-            }
-        }
-    }
+    
 }
 
 

@@ -1,12 +1,13 @@
-/* GRID LAYOUT */
+/* --- 1. GRID LAYOUT DESKTOP --- */
 body {
     background: var(--clr-fondo2);
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 2fr; 
-    grid-template-rows:  22vh 39vh 39vh;
+    grid-template-rows:  20vh 35vh 35vh 10vh;
     grid-template-areas:    "nav               nav                nav               nav            "
                             "structure-courses structure-courses  structure-courses structure      "
-                            "code              code-courses               code-courses      code-courses   ";
+                            "code              code-courses               code-courses      code-courses"
+                            "current           current            current current    ";
 }
 .design {grid-area: design;}
 .design-courses {grid-area: design-courses;}
@@ -14,8 +15,10 @@ body {
 .code-courses {grid-area: code-courses;}
 .structure {grid-area: structure;}
 .structure-courses {grid-area: structure-courses;}
+.current {grid-area: current;}
 
-/* SKILL BOXES */
+
+/* --- 2. SKILL BOXES --- */
 .skill-box {
     border: 1px dashed var(--clr-bordes);
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
@@ -73,12 +76,12 @@ body {
             display: flex; 
             h4 {
                 width: 60%;
-                font-size: 2em;
+                font-size: 2.5rem;
                 margin-left: 30px;
             }
             p{
                 width: 60%;
-                font-size: 1.1rem;
+                font-size: 1.5rem;
                 margin-top: 8px;
             }
         }
@@ -91,7 +94,7 @@ body {
             cursor: pointer;
             outline: none;
             img {
-                width: 35px;
+                width: 3.5rem;
             }
         }
         .carousel_button-left, .carousel-structure_button-left {
@@ -105,13 +108,13 @@ body {
             bottom: 0; left: 65%;
             transform: translateX(-50%);
             display: flex; justify-content: center;
-            padding: 10px 0;
+            padding: 1rem 0;
             .carousel-indicator, .carousel-structure-indicator {
                 border: 0;
                 border-radius: 50%;
-                width: 13px; height: 13px;
+                width: 1.3rem; height: 1.3rem;
                 background: var(--clr-fondo3);
-                margin: 10px;
+                margin: 1rem;
                 cursor: pointer;
                 outline: none;
             }
@@ -123,6 +126,28 @@ body {
             display: none;
         }
     }
+.current {
+    background: var(--clr-fondo1-opaco);
+    color: var(--clr-fondo3);
+    display: flex;
+    h3 {
+        display: flex; justify-content: center; align-items: center;
+        font-size: 1.8rem;
+        width: 20%;
+        margin-right: 5%;
+    }
+    .currently-learning {
+        width: 20%;
+        display: flex; align-items: center; justify-content: center;
+        img {
+            width: 4rem; height: 4rem;
+            margin-right: 1em;
+        }
+        h4 {
+            font-size: 1.4rem;
+        }
+    }
+}
 
 /* MOBILE */
 @media (max-width: 991px) {
@@ -130,35 +155,48 @@ body {
         background: var(--clr-fondo2);
         display: grid;
         grid-template-columns: 1fr; 
-        grid-template-rows:  10vh 20vh 40vh 20vh 40vh;
+        grid-template-rows:  1fr 2fr 3.5fr 2fr 3.5fr 1fr;
         grid-template-areas:    "nav"
                                 "structure"
                                 "structure-courses"
                                 "code"               
-                                "code-courses";
+                                "code-courses"
+                                "current";
     }
     .skill-logo {
-        width: 15%; height: auto;
+        width: 13%; max-height: 100%;
+        object-fit: cover;
     }
     .menu {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas:    "projects contact"
-                                "home   home";
+                                "home     home";
     }
     /* CAROUSEL */
     .carousel, .carousel-structure {
         .carousel-slide, .carousel-slide-structure {
             h4 {
-                width: 60%;
-                font-size: 1em;
-                margin-left: 30px;
+                font-size: 2rem;
             }
             p{
-                width: 60%;
-                font-size: 0.8rem;
-                margin-top: 8px;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .carousel, .carousel-structure {
+        img {
+            width: 20%; height: 70%;
+        }
+        .carousel-slide, .carousel-slide-structure {
+            h4 {
+                font-size: 1.8rem;
+            }
+            p{
+                font-size: 1rem;
             }
         }
     }

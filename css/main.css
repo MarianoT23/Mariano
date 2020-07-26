@@ -27,6 +27,10 @@ PHONE: > 768px
 /* --- 2. FONTS --- */
 /* Open Sans */
 /* --- 3. RESETS --- */
+html {
+  font-size: 62.5%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -54,19 +58,6 @@ body {
   position: relative;
 }
 
-.background {
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-fondo1)), to(var(--clr-fondo2)));
-  background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  -webkit-clip-path: polygon(0 0, 83% 0, 78% 100%, 0% 100%);
-          clip-path: polygon(0 0, 83% 0, 78% 100%, 0% 100%);
-  z-index: -80;
-}
-
 .desktop-nav {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -90,6 +81,21 @@ aside {
   grid-area: aside;
 }
 
+/* BACKGROUND */
+.background {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--clr-fondo1)), to(var(--clr-fondo2)));
+  background: linear-gradient(var(--clr-fondo1), var(--clr-fondo2));
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  -webkit-clip-path: polygon(0 0, 83% 0, 78% 100%, 0% 100%);
+          clip-path: polygon(0 0, 83% 0, 78% 100%, 0% 100%);
+  z-index: -80;
+}
+
+/* LANGUAGE */
 .language {
   position: absolute;
   top: 1vh;
@@ -113,7 +119,7 @@ nav {
 
 /* LOGO */
 .logo {
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--clr-letras2);
   text-shadow: 0 0 3px var(--clr-letras2);
   width: 30%;
@@ -141,6 +147,7 @@ nav {
 }
 
 .menu-container h3 {
+  font-size: 2rem;
   color: var(--clr-letras2);
   text-shadow: 0 0 3px var(--clr-letras2);
   letter-spacing: 1.8px;
@@ -156,8 +163,8 @@ nav {
 .menu-item::after {
   content: '';
   position: absolute;
-  top: 38px;
-  height: 2px;
+  top: 3.8rem;
+  height: 0.2rem;
   width: 0%;
   background: var(--clr-bordes);
   -webkit-transition: 0.5s;
@@ -228,12 +235,12 @@ section {
 }
 
 .about h2 {
-  font-size: 3em;
+  font-size: 4rem;
   color: var(--clr-bordes);
 }
 
 .about p {
-  font-size: 1.3em;
+  font-size: 2rem;
   line-height: 1.5em;
   margin: 1.2em 0;
   position: relative;
@@ -241,11 +248,11 @@ section {
 
 .about button {
   position: absolute;
-  right: 10%;
+  right: 5%;
   bottom: 0;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
-  font-size: 0.9em;
+  font-size: 1.5rem;
   font-weight: 900;
   padding: 1em;
   color: var(--clr-fondo2);
@@ -473,8 +480,8 @@ path:hover {
     display: grid;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: 10vh auto;
-        grid-template-rows: 10vh auto;
+    -ms-grid-rows: 10vh 90vh;
+        grid-template-rows: 10vh 90vh;
         grid-template-areas: "mobile-nav" "section";
     position: relative;
     background: var(--clr-fondo2);
@@ -500,7 +507,7 @@ path:hover {
   }
   /* LOGO */
   .logo {
-    font-size: 1rem;
+    font-size: 1.5rem;
     width: 70%;
     height: 100%;
     display: -webkit-box;
@@ -650,6 +657,9 @@ path:hover {
             justify-content: center;
     width: 100%;
   }
+  .menu-box h3 {
+    font-size: 1.8rem;
+  }
   .menu-box:hover {
     background: var(--clr-fondo2);
     -webkit-transition: 1s;
@@ -668,7 +678,7 @@ path:hover {
   }
   /* MENU SVG's */
   .menu-svg {
-    width: 150px;
+    width: 200px;
     height: auto;
   }
   /* PRINCIPAL */
@@ -708,6 +718,13 @@ path:hover {
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: "resume"  "projects"  "contact";
+  }
+  .menu-svg {
+    width: 150px;
+    height: auto;
+  }
+  .menu-box h3 {
+    font-size: 1.5rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
