@@ -294,6 +294,22 @@ body {
   .carousel .carousel-slide p, .carousel .carousel-slide-structure p, .carousel-structure .carousel-slide p, .carousel-structure .carousel-slide-structure p {
     font-size: 1.2rem;
   }
+  /* CURRENTLY LEARNING */
+  .current h3 {
+    font-size: 1.4rem;
+    width: 30%;
+  }
+  .current .currently-learning {
+    margin: 2em;
+    width: 30%;
+  }
+  .current .currently-learning img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .current .currently-learning h4 {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 768px) {
